@@ -1,0 +1,76 @@
+# See https://help.github.com/articles/ignoring-files/ for more about ignoring files.
+
+# dependencies
+node_modules
+/.pnp
+.pnp.js
+
+# testing
+/coverage
+
+# production
+/build
+
+# misc
+.DS_Store
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+const { gql } = require('apollo-server-express');
+
+const typeDefs = gql`
+    type User {
+        _id: ID 
+        username: String 
+        email: String 
+        password: String 
+        savedBooks: [Book]
+    }
+
+    type Book {
+        _id: ID
+        authors: [String]
+        description: String 
+        bookId: String 
+        image: String
+        link: String
+        title: String
+    }
+
+    type Auth {
+        token: ID!
+        user: User
+    }
+
+    type Query {
+        me: User
+    }
+
+    input saveBookInput {
+
+        bookId: String!
+        authors:[String]
+        description: String!
+        title: String!
+        image: String
+    }
+
+    type Mutation {
+        login(email: String!, password: String!): Auth
+        addUser(username: String!, email: String!, password: String!): Auth 
+        saveBook(book: saveBookInput):User
+        removeBook(bookId: String!):User
+
+    }
+ 
+
+
+`;
+
+module.exports = typeDefs;
