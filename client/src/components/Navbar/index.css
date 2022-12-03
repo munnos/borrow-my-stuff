@@ -1,0 +1,30 @@
+ 
+   .min-100-vh {
+    min-height: 100vh;
+  } 
+  
+  .min-100-vw {
+    min-width: 100vw;
+  }
+   
+
+  /* FLEX CONTENT */
+   .flex-row {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .flex-column {
+    display: flex;
+    flex-direction: column;
+    flex-wrap: wrap;
+  }
+  
+
+  .custom-header {
+    height: 10vh;
+    background-color:#253F41;
+    width: 100%;
+
+}
