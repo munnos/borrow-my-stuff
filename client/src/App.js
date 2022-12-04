@@ -1,4 +1,5 @@
 import React from 'react';
+import 'bootstrap/dist/css/bootstrap.min.css'
 import {
   ApolloClient,
   InMemoryCache,
@@ -8,13 +9,17 @@ import {
 import { setContext } from '@apollo/client/link/context';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 
-import Home from './pages/Home';
-import Signup from './pages/Signup';
 import Login from './pages/Login';
-import SingleThought from './pages/SingleThought';
-import Profile from './pages/Profile';
-import Header from './components/Header';
+import Signup from './pages/Signup';
+import Home from './pages/Home';
+import Donate from './pages/Donate';
+import Header from './components/Navbar';
 import Footer from './components/Footer';
+import Detail from './pages/Detail';
+import NoMatch from './pages/NoMatch';
+import { StoreProvider } from './utils/GlobalState';
+import Success from './pages/Success';
+import OrderHistory from './pages/OrderHistory';
 
 // Construct main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -44,18 +49,49 @@ function App() {
   return (
     <ApolloProvider client={client}>
       <Router>
-        <div className="flex-column justify-flex-start min-100-vh">
+        <div className="flex-column  container-fluid min-100-vh">
+        <StoreProvider>
           <Header />
           <div className="container">
             <Routes>
               <Route 
                 path="/"
                 element={<Home />}
-              />            
+              />
+              <Route 
+                path="/Login"
+                element={<Login />}
+              />
+              <Route 
+                path="/signup"
+                element={<Signup />}              
+              />
+              <Route 
+                path="/donate"
+                element={<Donate />}
+              /> 
+              <Route 
+                path="/success" 
+                element={<Success />} 
+              />
+              <Route 
+                path="/orderHistory" 
+                element={<OrderHistory />} 
+              />
+              <Route 
+                path="/products/:id" 
+                element={<Detail />} 
+              />
+              <Route 
+                path="*" 
+                element={<NoMatch />} 
+              />              
               
             </Routes>
+            
           </div>
           <Footer />
+          </StoreProvider>
         </div>
       </Router>
     </ApolloProvider>
