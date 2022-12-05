@@ -2,18 +2,17 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const categorySchemaLS = new Schema ({
+const listingCategory = new Schema ({
     name: {
         type: String,
         required: true,
         trim: true,
     },
     image: {
-        type: String,
-
+        type: String
     }
 
 });
-const CategoryLS = mongoose.model('CategoryLS', categorySchemaLS);
+const ListingCategory = mongoose.model('ListingCategory', listingCategory);
 
-module.exports = CategoryLS;
+module.exports = ListingCategory;

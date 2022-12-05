@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const orderSchema = new Schema({
+const shopOrderSchema = new Schema({
   purchaseDate: {
     type: Date,
     default: Date.now
@@ -10,11 +10,11 @@ const orderSchema = new Schema({
   products: [
     {
       type: Schema.Types.ObjectId,
-      ref: 'Product'
+      ref: 'ShopProduct'
     }
   ]
 });
 
-const Order = mongoose.model('Order', orderSchema);
+const ShopOrder = mongoose.model('ShopOrder', shopOrderSchema);
 
-module.exports = Order;
+module.exports = ShopOrder;
