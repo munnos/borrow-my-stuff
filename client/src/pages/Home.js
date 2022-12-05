@@ -1,6 +1,9 @@
 import React from "react";
 import { Button, Image } from 'react-bootstrap' 
 import Cart from "../components/Cart";
+import Carousel from "../components/Carousel";
+import { useQuery } from '@apollo/client';
+import { QUERY_ALL_PRODUCTS } from "../utils/queries"
 import { Link } from 'react-router-dom';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
@@ -8,7 +11,15 @@ import Col from 'react-bootstrap/Col';
 import CategoryCards from "../components/CategoryCards";
 import Card from 'react-bootstrap/Card';
 
+
 const Home = () => {
+  
+  const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
+  const products = data?.products || [];
+
+  const topProduct = [];
+
+  
   return(
   <div>
     <Container>
@@ -79,13 +90,15 @@ const Home = () => {
       
       {CategoryCards}   
       
-     
+      <Carousel products ={products} />
+
     </Container>
 
     
       
    <Cart />
 </div>
+
   );
 };
 
