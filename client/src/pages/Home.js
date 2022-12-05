@@ -11,8 +11,6 @@ const Home = () => {
 
 const topProduct = [];
 
-// topProduct.push(products[i])
-
   return (
     <div className="container">
       <h1>This is the Home page</h1>
