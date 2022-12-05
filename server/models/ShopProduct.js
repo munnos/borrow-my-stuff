@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 
 const { Schema } = mongoose;
 
-const productSchema = new Schema({
+const shopProductSchema = new Schema({
   name: {
     type: String,
     required: true,
@@ -26,11 +26,11 @@ const productSchema = new Schema({
   },
   category: {
     type: Schema.Types.ObjectId,
-    ref: 'Category',
+    ref: 'ShopCategory',
     required: true
   }
 });
 
-const Product = mongoose.model('Product', productSchema);
+const ShopProduct = mongoose.model('ShopProduct', shopProductSchema);
 
-module.exports = Product;
+module.exports = ShopProduct;

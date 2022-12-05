@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 //LS refers to the listing Schema
 const { Schema } = mongoose;
 
-const listingSchema = new Schema ({
+const listingProduct = new Schema ({
       nameLS: {
         type: String,
         required: true,
@@ -16,13 +16,19 @@ const listingSchema = new Schema ({
       },
       categoryLS: {
         type: Schema.Types.ObjectId,
-        ref: 'Category',
+        ref: 'ListingCategory',
         required: true
       },
       borrowDurationLS: {
         type: String,
-      }
+      },
+      user: {
+        type: Schema.Types.ObjectId,
+        required: true,
+        ref: "User"        
+      },
+      listingDate: {type: Date, default: Date.now}
 });
-const Listing = mongoose.model('Listing', listingSchema);
+const ListingProduct = mongoose.model('ListingProduct', listingProduct);
 
-module.exports = Listing;
+module.exports = ListingProduct;
