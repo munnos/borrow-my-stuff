@@ -1,12 +1,12 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, Product, Category, Order } = require('../models');
+const { User, ShopProduct, ShopCategory, ShopOrder } = require('../models');
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
 const resolvers = {
   Query: {
     categories: async () => {
-      return await Category.find();
+      return await ShopCategory.find();
     },
     products: async (parent, { category, name }) => {
       const params = {};
@@ -21,10 +21,10 @@ const resolvers = {
         };
       }
 
-      return await Product.find(params).populate('category');
+      return await ShopProduct.find(params).populate('category');
     },
     product: async (parent, { _id }) => {
-      return await Product.findById(_id).populate('category');
+      return await ProductOrder.findById(_id).populate('category');
     },
     user: async (parent, args, context) => {
       if (context.user) {
@@ -54,7 +54,7 @@ const resolvers = {
     },
     checkout: async (parent, args, context) => {
       const url = new URL(context.headers.referer).origin;
-      const order = new Order({ products: args.products });
+      const order = new ShopOrder({ products: args.products });
       console.log(url);
       console.log(order);
       const line_items = [];
@@ -101,7 +101,7 @@ const resolvers = {
     addOrder: async (parent, { products }, context) => {
       console.log(context);
       if (context.user) {
-        const order = new Order({ products });
+        const order = new ProductOrder({ products });
 
         await User.findByIdAndUpdate(context.user._id, { $push: { orders: order } });
 
@@ -120,7 +120,7 @@ const resolvers = {
     updateProduct: async (parent, { _id, quantity }) => {
       const decrement = Math.abs(quantity) * -1;
 
-      return await Product.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
+      return await ProductOrder.findByIdAndUpdate(_id, { $inc: { quantity: decrement } }, { new: true });
     },
     login: async (parent, { email, password }) => {
       const user = await User.findOne({ email });
