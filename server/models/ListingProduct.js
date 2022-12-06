@@ -3,23 +3,23 @@ const mongoose = require('mongoose');
 const { Schema } = mongoose;
 
 const listingProduct = new Schema ({
-      nameLS: {
+      name: {
         type: String,
         required: true,
         trim: true
       },
-      descriptionLS: {
+      description: {
         type: String
       },
-      imageLS: {
+      image: {
         type: String
       },
-      categoryLS: {
+      category: {
         type: Schema.Types.ObjectId,
         ref: 'ListingCategory',
         required: true
       },
-      borrowDurationLS: {
+      borrowDuration: {
         type: String,
       },
       user: {
