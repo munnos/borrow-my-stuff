@@ -16,8 +16,10 @@ function Navtest() {
     if (Auth.loggedIn()) {
       return (               
         <>
-        <Link className="nav-link" to="/orderHistory">Home</Link>
-          
+        <Link className="nav-link" to="/Donate">Donate</Link>
+        <Link to="/userDash" className="nav-link">
+              View Profile
+            </Link> 
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <Nav.Link href="/" onClick={() => Auth.logout()}>Logout</Nav.Link>
             
@@ -35,6 +37,7 @@ function Navtest() {
             <Link to="/login" className="nav-link">
               Login
             </Link> 
+            
           
         </>
       );

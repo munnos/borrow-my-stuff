@@ -15,5 +15,9 @@
   "license": "ISC",
   "devDependencies": {
     "concurrently": "^5.1.0"
+  },
+  "dependencies": {
+    "flickity": "^2.3.0",
+    "react-flickity-component": "^3.6.3"
   }
 }
