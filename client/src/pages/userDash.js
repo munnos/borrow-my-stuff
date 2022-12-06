@@ -27,28 +27,29 @@ const UserDash = () => {
     setProfileView(event.target.value);
 
     console.log('value is:', event.target.value);
-    console.log(profileView);
+  
     // 👇️ value of input field
     console.log('handleClick 👉️',  event.target.value);
-    testing(event.target.value);
+    //testing(event.target.value);
   }
 
    const testing = (profileView) =>{
-
+    console.log('profileView:', profileView)
       if(profileView === "requested") {
         return   <Requested profileView={profileView}/>
-              } else if (profileView === "listed"){
+      } 
+
+      if (profileView === "listed"){
         return <Listed profileView={profileView}/>
-      
-      } else if (profileView === "Liked"){
+      } 
+
+      if (profileView === "liked" ){
         return  <Liked profileView={profileView}/>
-        
-      } else {
+      } 
 
         console.log("no matching condition");
       }   
 
-    }
     // switch(profileView) {
     //   case "requested":
     //     console.log(`inside switch statement ${profileView}`);
@@ -96,7 +97,7 @@ const UserDash = () => {
         <Col sm={8}>
           {/* components are called here */}
 
-
+        {profileView && testing(profileView)}
 
 
         </Col>
