@@ -20,6 +20,7 @@ import NoMatch from './pages/NoMatch';
 import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
+import UserDash from './pages/userDash';
 
 // Construct main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -65,6 +66,10 @@ function App() {
               <Route 
                 path="/signup"
                 element={<Signup />}              
+              />
+              <Route 
+                path="/userDash"
+                element={<UserDash />}              
               />
               <Route 
                 path="/donate"

@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import Flickity from "react-flickity-component";
+// import Flickity from "react-flickity-component";
 import './style.css';
 import "./flickity.css";
 

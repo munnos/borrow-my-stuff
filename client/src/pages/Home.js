@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Image } from 'react-bootstrap' 
 import Cart from "../components/Cart";
-import Carousel from "../components/Carousel";
+//import Carousel from "../components/Carousel";
 import { useQuery } from '@apollo/client';
 import { QUERY_ALL_PRODUCTS } from "../utils/queries"
 import { Link } from 'react-router-dom';
@@ -14,10 +14,10 @@ import Card from 'react-bootstrap/Card';
 
 const Home = () => {
   
-  const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
-  const products = data?.products || [];
+  // const { loading, data } = useQuery(QUERY_ALL_PRODUCTS);
+  // const products = data?.products || [];
 
-  const topProduct = [];
+  // const topProduct = [];
 
   
   return(
@@ -33,7 +33,7 @@ const Home = () => {
         <Col sm={5}> 
           <h1 className="font-weight-light"> Tagline</h1>
           <p>
-            Borrow my Stuff if a not-for-profit organisation linking communities of like minded people who ....
+            Borrow my Stuff is a not-for-profit organisation linking communities of like minded people who ....
           </p>
           <Button className="button" variant="outline-primary" href="/aboutus" >Support our cause</Button>
         </Col>
@@ -90,7 +90,7 @@ const Home = () => {
       
       {CategoryCards}   
       
-      <Carousel products ={products} />
+      {/* <Carousel products ={products} /> */}
 
     </Container>
 
