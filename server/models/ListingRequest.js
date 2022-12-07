@@ -22,3 +22,7 @@ const listingRequest = new Schema({
 const ListingRequest = mongoose.model('ListingRequest', listingRequest);
 
 module.exports = ListingRequest;
+
+//approve: false, active: true -> request is active - pending approval - default
+//approve: true, active: false -> request is no longer active - request approved
+//approve: false, active: false -> request is no longer active - request denied

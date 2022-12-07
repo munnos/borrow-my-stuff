@@ -1,5 +1,5 @@
 const { AuthenticationError } = require('apollo-server-express');
-const { User, ShopProduct, ShopCategory, ShopOrder } = require('../models');
+const { User, ShopProduct, ShopCategory, ShopOrder, ListingCategory, ListingProduct, ListingRequest } = require('../models');
 const { signToken } = require('../utils/auth');
 const stripe = require('stripe')('sk_test_4eC39HqLyjWDarjtT1zdp7dc');
 
@@ -89,7 +89,46 @@ const resolvers = {
       });
 
       return { session: session.id };
-    }
+    },
+    getAllListingCategories: async (parent, args, context) => {
+      const results = await ListingCategory.find({});
+      return results;
+    },
+    getAllListedProducts: async (parent, args, context) => {
+      const results = await ListingProduct.find({});
+      return results;
+    },
+    getListedProductsByCategory: async (parent, args, context) => {
+      const results = await ListingProduct.find({category: args.category});
+      return results;
+    },
+    getListedProductsByUser: async (parent, args, context) => {
+      const results = await ListingProduct.find({user: args.user});
+      return results;
+    },
+    getMyListedProducts: async (parent, args, context) => {
+      if (context.user) {
+        const results = await ListingProduct.find({user: context.user._id});
+        return results;
+      }
+      throw new AuthenticationError('Not logged in');
+    },
+    getRequestsIMade: async (parent, args, context) => {
+      if (context.user) {
+        const results = await ListingRequest.find({requestee: context.user._id});
+        return results;
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+    getRequestsForProductIListed: async (parent, args, context) => {
+      if (context.user) {
+        const results = await ListingRequest.find({listingProduct: args.listingProduct});
+        return results;
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -138,7 +177,31 @@ const resolvers = {
       const token = signToken(user);
 
       return { token, user };
-    }
+    },
+    listAProduct: async (parent, args, context) => {
+      if (context.user) {
+        return await ListingProduct.create();
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+    requestAProduct: async (parent, args, context) => {
+      if (context.user) {
+        return await ListingRequest.create();
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
+    editRequestedProduct: async (parent, args, context) => {
+      if (context.user) {
+        const decision = args.decision;
+        const newActiveValue = null;
+        const newApprovedValue = null;
+        return await ListingRequest.findByIdAndUpdate({_id: args.listingRequest, listingProduct: args.listingProduct}, {active: newActiveValue, approved: newApprovedValue}, { new: true });
+      }
+
+      throw new AuthenticationError('Not logged in');
+    },
   }
 };
 

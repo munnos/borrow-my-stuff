@@ -22,6 +22,33 @@ const typeDefs = gql`
     products: [ShopProduct]
   }
 
+  type ListingProduct {
+    _id: ID
+    name: String
+    description: String
+    image: String
+    category: ListingCategory
+    borrowDuration: String
+    user: User
+    listingDate: Date
+  }
+
+  type ListingCategory {
+    _id: ID
+    name: String
+    image: String
+  }
+
+  type ListingRequest {
+    _id: ID
+    listingProduct: ListingProduct
+    requestee: User
+    dateRequested: Date
+    duration: String
+    approved: Boolean
+    active: Boolean
+  }
+
   type User {
     _id: ID
     firstName: String
@@ -46,6 +73,13 @@ const typeDefs = gql`
     user: User
     order(_id: ID!): ShopOrder
     checkout(products: [ID]!): Checkout
+    getAllListingCategories(): [ListingCategory]
+    getAllListedProducts(): [ListingProduct]
+    getListedProductsByCategory(category: ID): [ListingProduct]
+    getListedProductsByUser(user: ID!): [ListingProduct]
+    getMyListedProducts(): [ListingProduct]
+    getRequestsIMade(): [ListingRequest]
+    getRequestsForProductIListed(listingProduct: ID!): [ListingRequest]
   }
 
   type Mutation {
@@ -54,6 +88,9 @@ const typeDefs = gql`
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateProduct(_id: ID!, quantity: Int!): ShopProduct
     login(email: String!, password: String!): Auth
+    listAProduct(): ListingProduct
+    requestAProduct(listingProduct: ID!, duration: String, ): ListingRequest
+    editRequestedProduct(listingRequest: ID!, listingProduct: ID!, decision: Boolean): ListingRequest
   }
 `;
 
