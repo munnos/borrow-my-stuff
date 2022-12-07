@@ -30,7 +30,7 @@ const typeDefs = gql`
     category: ListingCategory
     borrowDuration: String
     user: User
-    listingDate: Date
+    listingDate: String
   }
 
   type ListingCategory {
@@ -43,7 +43,7 @@ const typeDefs = gql`
     _id: ID
     listingProduct: ListingProduct
     requestee: User
-    dateRequested: Date
+    dateRequested: String
     duration: String
     approved: Boolean
     active: Boolean
@@ -73,12 +73,12 @@ const typeDefs = gql`
     user: User
     order(_id: ID!): ShopOrder
     checkout(products: [ID]!): Checkout
-    getAllListingCategories(): [ListingCategory]
-    getAllListedProducts(): [ListingProduct]
+    getAllListingCategories(category: ID, name: String): [ListingCategory]
+    getAllListedProducts(_id: ID!): [ListingProduct]
     getListedProductsByCategory(category: ID): [ListingProduct]
     getListedProductsByUser(user: ID!): [ListingProduct]
-    getMyListedProducts(): [ListingProduct]
-    getRequestsIMade(): [ListingRequest]
+    getMyListedProducts(_id:ID): [ListingProduct]
+    getRequestsIMade(_id:ID): [ListingRequest]
     getRequestsForProductIListed(listingProduct: ID!): [ListingRequest]
   }
 
@@ -88,7 +88,7 @@ const typeDefs = gql`
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateProduct(_id: ID!, quantity: Int!): ShopProduct
     login(email: String!, password: String!): Auth
-    listAProduct(): ListingProduct
+    listAProduct(name: String!, description: String): ListingProduct
     requestAProduct(listingProduct: ID!, duration: String, ): ListingRequest
     editRequestedProduct(listingRequest: ID!, listingProduct: ID!, decision: Boolean): ListingRequest
   }
