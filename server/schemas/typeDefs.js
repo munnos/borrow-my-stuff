@@ -74,7 +74,7 @@ const typeDefs = gql`
     order(_id: ID!): ShopOrder
     checkout(products: [ID]!): Checkout
     getAllListingCategories(category: ID, name: String): [ListingCategory]
-    getAllListedProducts(_id: ID!): [ListingProduct]
+    getAllListedProducts(_id: ID): [ListingProduct]
     getListedProductsByCategory(category: ID): [ListingProduct]
     getListedProductsByUser(user: ID!): [ListingProduct]
     getMyListedProducts(_id:ID): [ListingProduct]

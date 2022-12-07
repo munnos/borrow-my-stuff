@@ -1,68 +1,53 @@
 [
-{
+  {
     "name": "Camera",
     "description": "A few scratches but works like new.",
-    "image": "",
-    "category": "Electronics",
-    "borrowDuration": "2 weeks",
-    "user": ""
-},
+    "image": "defaultPic",
+    "borrowDuration": "2 weeks"
+  },
 
-{
+  {
     "name": "Folding Chair",
     "description": "A white plastic fold up chair.",
-    "image": "",
-    "category": "Furniture",
-    "borrowDuration": "2 weeks",
-    "user": ""
-},
-{
+    "image": "defaultPic",
+    "borrowDuration": "2 weeks"
+  },
+  {
     "name": "Scooter",
     "description": "A small metal scooter suitable for a pre-teen.",
-    "image": "",
-    "category": "Transport",
-    "borrowDuration": "1 week",
-    "user": ""
-},
-{
+    "image": "defaultPic",
+    "borrowDuration": "1 week"
+  },
+  {
     "name": "8kg Kettlebell",
     "description": "Cast iron Kettlebell with a few small scratches.",
-    "image": "",
-    "category": "Gym and Leisure",
-    "borrowDuration": "3 days",
-    "user": ""
-},
-{
+    "image": "defaultPic",
+    "borrowDuration": "3 days"
+  },
+  {
     "name": "Spade",
     "description": "Small green spade.",
-    "image": "",
-    "category": "Garden Equipment",
-    "borrowDuration": "1 week",
-    "user": ""
-},
-{
+    "image": "defaultPic",
+    "borrowDuration": "1 week"
+  },
+
+  {
     "name": "DJ needed",
     "description": "I'm looking for a DJ for my daughter's birthday party.",
-    "image": "",
-    "category": "Help Needed",
+    "image": "defaultPic",
     "borrowDuration": "1 day",
     "user": ""
-},
-{
+  },
+  {
     "name": "Car cleaning",
     "description": "I've got some free time, so I'm looking to spend it washing cars.",
-    "image": "",
-    "category": "Help Offered",
-    "borrowDuration": "1 week",
-    "user": ""
-},
-{
+    "image": "defaultPic",
+    "borrowDuration": "1 week"
+  },
+  {
     "name": "Iron",
     "description": "Small kettle with steaming functionality",
-    "image": "",
-    "category": "Home Appliances",
-    "borrowDuration": "2 weeks",
-    "user": ""
-}
-
+    "image": "defaultPic",
+    "borrowDuration": "2 weeks"
+  }
 ]
