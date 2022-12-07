@@ -1,7 +1,7 @@
 const mongoose = require('mongoose');
 //LS refers to the listing Schema
 const { Schema } = mongoose;
-
+const dateFormat = require('../utils/dateFormat');
 const listingRequest = new Schema({
     listingProduct: {
         type: Schema.Types.ObjectId,
@@ -13,7 +13,11 @@ const listingRequest = new Schema({
         required: true,
         ref: "User"
     },
-    dateRequested: { type: Date, default: Date.now },
+    dateRequested: {
+        type: Date,
+        default: Date.now,
+        get: (timestamp) => dateFormat(timestamp),
+      },
     duration: String,
     approved: { type: Boolean, default: false },
     active: { type: Boolean, default: true }
