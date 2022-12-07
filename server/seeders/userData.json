@@ -1,0 +1,62 @@
+[
+  {
+    "firstName": "Mike",
+    "lastName": "York",
+    "email": "mikethefourth@gmail.com",
+    "password": "password12345"
+  },
+  {
+    "firstName": "Andy",
+    "lastName": "Knight",
+    "email": "andyistheking@gmail.com",
+    "password": "password12345"
+  },
+  {
+    "firstName": "Kimberlee",
+    "lastName": "Shinto",
+    "email": "kimtastic@yahoo.co.uk",
+    "password": "password12345"
+  },
+  {
+    "firstName": "Ursla",
+    "lastName": "Kalstom",
+    "email": "devursla@gmail.com",
+    "password": "password12345"
+  },
+  {
+    "firstName": "Victoria",
+    "lastName": "Rose",
+    "email": "queenvictoria454@gmail.com",
+    "password": "password12345"
+  },
+  {
+    "firstName": "Tony",
+    "lastName": "Fleets",
+    "email": "tonyrulz78@hotmail.com",
+    "password": "password12345"
+  },
+  {
+    "firstName": "Ben",
+    "lastName": "Mee",
+    "email": "lordstark@hotmail.com",
+    "password": "password12345"
+  },
+  {
+    "firstName": "Shoala",
+    "lastName": "Hammond",
+    "email": "shammond@btinternet.com",
+    "password": "password12345"
+  },
+  {
+    "firstName": "Shao",
+    "lastName": "Khan",
+    "email": "shaokhan434@live.co.uk",
+    "password": "password12345"
+  },
+  {
+    "firstName": "Elijah",
+    "lastName": "Holt",
+    "email": "eholt@testmail.com",
+    "password": "password12345"
+  }
+]

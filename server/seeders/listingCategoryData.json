@@ -1,0 +1,41 @@
+[
+  {
+    "name": "Garden Equipment",
+    "image": "https://i.ibb.co/dsvrvyN/G-E.jpg"
+  },
+
+  {
+    "name": "Furniture",
+    "image": "https://i.ibb.co/XY0BSPS/furniture.jpg"
+  },
+
+  {
+    "name": "Electronics",
+    "image": "https://i.ibb.co/FYPMnrr/electronics.jpg"
+  },
+
+  {
+    "name": "Home Appliances",
+    "image": "https://i.ibb.co/mD5jdRQ/H-A.jpg"
+  },
+
+  {
+    "name": "Transport",
+    "image": "https://i.ibb.co/2jJJXYx/transport2.jpg"
+  },
+
+  {
+    "name": "Help Offered",
+    "image": "https://i.ibb.co/frmxnNB/H-N2.jpg"
+  },
+
+  {
+    "name": "Help Needed",
+    "image": "https://i.ibb.co/jTHsBSM/H-N.jpg"
+  },
+
+  {
+    "name": "Gym and Leisure",
+    "image": "https://i.ibb.co/m8Qc3mW/GandL.jpg"
+  }
+]
