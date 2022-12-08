@@ -50,18 +50,17 @@ export const ADD_USER = gql`
   }
 `;
 //////Borrow my stuff mutations below/////
-// export const LIST_ITEM = gql`
-// mutation listAProduct(
-//   $name: String!
-//   $description: String!
-  
-// ) {
-//   listAProduct(
-//     name: String
-//     description: String
-//   )
+export const LIST_ITEM = gql`
+mutation listAProduct(
+  $name: String!
+  $description: String!   
+) {
+  listAProduct(
+    name: String
+    description: String
+  )
 
-// }`;
+}`;
 //from listaproduct
 // $category: ListingProduct
   // $user: User

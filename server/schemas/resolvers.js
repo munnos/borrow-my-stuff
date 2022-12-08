@@ -95,27 +95,28 @@ const resolvers = {
       return results;
     },
     getAllListedProducts: async (parent, args, context) => {
-      const results = await ListingProduct.find({});
+      const results = await ListingProduct.find({}).populate('category').populate('user');
       return results;
     },
     getListedProductsByCategory: async (parent, args, context) => {
-      const results = await ListingProduct.find({category: args._id});
+      // const results = await ListingProduct.find({category: args._id});
+      const results = await ListingProduct.find({category: args.category}).populate('category').populate('user');
       return results;
     },
     getListedProductsByUser: async (parent, args, context) => {
-      const results = await ListingProduct.find({user: args.user});
+      const results = await ListingProduct.find({user: args.user}).populate('category').populate('user');
       return results;
     },
     getMyListedProducts: async (parent, args, context) => {
       if (context.user) {
-        const results = await ListingProduct.find({user: context.user._id});
+        const results = await ListingProduct.find({user: context.user._id}).populate('category').populate('user');
         return results;
       }
       throw new AuthenticationError('Not logged in');
     },
     getRequestsIMade: async (parent, args, context) => {
       if (context.user) {
-        const results = await ListingRequest.find({requestee: context.user._id});
+        const results = await ListingRequest.find({requestee: context.user._id}).populate('listingProduct').populate('requestee');
         return results;
       }
 
@@ -123,12 +124,21 @@ const resolvers = {
     },
     getRequestsForProductIListed: async (parent, args, context) => {
       if (context.user) {
-        const results = await ListingRequest.find({listingProduct: args.listingProduct});
+        const results = await ListingRequest.find({listingProduct: args.listingProduct}).populate('requestee');
         return results;
       }
 
       throw new AuthenticationError('Not logged in');
     },
+    getBMSCategoryIdByName: async (parent, args, context) => {
+     
+        const results = await ListingCategory.findOne({name: args.name});
+        return results;   
+
+      
+
+    }
+
   },
   Mutation: {
     addUser: async (parent, args) => {
@@ -178,16 +188,18 @@ const resolvers = {
 
       return { token, user };
     },
-    listAProduct: async (parent, args, context) => {
+    listAProduct: async (parent, { name, description, image, category}, context) => {
       if (context.user) {
-        return await ListingProduct.create();
+        return await ListingProduct.create({ name, description, image, category, user: context.user._id});
       }
-
       throw new AuthenticationError('Not logged in');
     },
-    requestAProduct: async (parent, args, context) => {
+
+     
+    
+    requestAProduct: async (parent, {listingProduct, duration}, context) => {
       if (context.user) {
-        return await ListingRequest.create();
+        return await ListingRequest.create({ listingProduct, duration, requestee: context.user._id});
       }
 
       throw new AuthenticationError('Not logged in');
@@ -195,8 +207,19 @@ const resolvers = {
     editRequestedProduct: async (parent, args, context) => {
       if (context.user) {
         const decision = args.decision;
-        const newActiveValue = null;
-        const newApprovedValue = null;
+        let newActiveValue = null;
+        let newApprovedValue = null;
+        if (decision == "approved") {//approved
+          newActiveValue = false;
+          newApprovedValue = true;
+          //ADD MORE LOGIC HERE
+        } else if (decision == "declined") {//declined
+          newActiveValue = false;
+          newApprovedValue = false;
+        } else {
+          throw new AuthenticationError('You did not specify a decision');
+        }
+        
         return await ListingRequest.findByIdAndUpdate({_id: args.listingRequest, listingProduct: args.listingProduct}, {active: newActiveValue, approved: newApprovedValue}, { new: true });
       }
 
@@ -206,3 +229,11 @@ const resolvers = {
 };
 
 module.exports = resolvers;
+
+// listAProduct: async (parent, args, context) => {
+//   if (context.user) {
+//     return await ListingProduct.create();
+//   }
+
+//   throw new AuthenticationError('Not logged in');
+// },
