@@ -35,7 +35,7 @@ const Home = () => {
           <p>
             Borrow my Stuff is a not-for-profit organisation linking communities of like minded people who ....
           </p>
-          <Button className="button" variant="outline-primary" href="/aboutus" >Support our cause</Button>
+          <Button className="button" variant="outline-primary" href="/donate" >Support our cause</Button>
         </Col>
       </Row>
       

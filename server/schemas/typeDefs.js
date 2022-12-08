@@ -39,8 +39,8 @@ const typeDefs = gql`
     image: String
   }
 
-  type ListingRequest {
-    _id: ID
+  type ListingRequest {  
+    _id: ID  
     listingProduct: ListingProduct
     requestee: User
     dateRequested: String
@@ -66,6 +66,19 @@ const typeDefs = gql`
     user: User
   }
 
+  input categoryInput {
+    _id: ID !
+    name: String
+  }
+
+  input userInput {
+    _id: ID!
+    name: String
+    
+  }
+
+
+
   type Query {
     categories: [ShopCategory]
     products(category: ID, name: String): [ShopProduct]
@@ -73,13 +86,14 @@ const typeDefs = gql`
     user: User
     order(_id: ID!): ShopOrder
     checkout(products: [ID]!): Checkout
-    getAllListingCategories(category: ID, name: String): [ListingCategory]
-    getAllListedProducts(_id: ID): [ListingProduct]
+    getAllListingCategories: [ListingCategory]
+    getAllListedProducts: [ListingProduct]
     getListedProductsByCategory(category: ID): [ListingProduct]
     getListedProductsByUser(user: ID!): [ListingProduct]
-    getMyListedProducts(_id:ID): [ListingProduct]
-    getRequestsIMade(_id:ID): [ListingRequest]
+    getMyListedProducts: [ListingProduct]
+    getRequestsIMade: [ListingRequest]
     getRequestsForProductIListed(listingProduct: ID!): [ListingRequest]
+    getBMSCategoryIdByName(name:String!): ListingCategory
   }
 
   type Mutation {
@@ -88,9 +102,9 @@ const typeDefs = gql`
     updateUser(firstName: String, lastName: String, email: String, password: String): User
     updateProduct(_id: ID!, quantity: Int!): ShopProduct
     login(email: String!, password: String!): Auth
-    listAProduct(name: String!, description: String): ListingProduct
-    requestAProduct(listingProduct: ID!, duration: String, ): ListingRequest
-    editRequestedProduct(listingRequest: ID!, listingProduct: ID!, decision: Boolean): ListingRequest
+    listAProduct(name: String!, description: String!, image: String!, category: ID!): ListingProduct
+    requestAProduct(listingProduct: ID!, duration: String! ): ListingRequest
+    editRequestedProduct(listingRequest: ID!, listingProduct: ID!, decision: String!): ListingRequest
   }
 `;
 

@@ -21,6 +21,7 @@ import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
 import UserDash from './pages/userDash';
+import AddListItem from './pages/AddListItem'
 
 // Construct main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -86,6 +87,10 @@ function App() {
               <Route 
                 path="/products/:id" 
                 element={<Detail />} 
+              />
+              <Route 
+                path="/addListItem" 
+                element={<AddListItem />} 
               />
               <Route 
                 path="*" 

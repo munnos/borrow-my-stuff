@@ -1,5 +1,6 @@
 import { gql } from '@apollo/client';
 
+/*****Shop queries ****************************/
 export const QUERY_PRODUCTS = gql`
   query getProducts($category: ID) {
     products(category: $category) {
@@ -23,6 +24,7 @@ export const QUERY_CHECKOUT = gql`
     }
   }
 `;
+
 
 export const QUERY_ALL_PRODUCTS = gql`
   {
@@ -66,5 +68,17 @@ export const QUERY_USER = gql`
         }
       }
     }
+  }
+`;
+/******Borrow my stuff queries********/
+
+
+
+export const QUERY_BMS_CATEGORY = gql`
+  query getBMSCategoryIdByName($name: String) {
+          getBMSCategoryIdByName(name: String) {
+            _id
+            name
+          }
   }
 `;
