@@ -21,6 +21,7 @@ import { StoreProvider } from './utils/GlobalState';
 import Success from './pages/Success';
 import OrderHistory from './pages/OrderHistory';
 import UserDash from './pages/userDash';
+import ListingCategory from './pages/ListingCategories';
 
 // Construct main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -90,8 +91,12 @@ function App() {
               <Route 
                 path="*" 
                 element={<NoMatch />} 
-              />              
-              
+              />  
+
+              <Route
+              path="/categories/:id"
+              element={<ListingCategory />}            
+              />
             </Routes>
             
           </div>

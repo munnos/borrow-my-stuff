@@ -99,7 +99,7 @@ const resolvers = {
       return results;
     },
     getListedProductsByCategory: async (parent, args, context) => {
-      const results = await ListingProduct.find({category: args.category});
+      const results = await ListingProduct.find({category: args._id});
       return results;
     },
     getListedProductsByUser: async (parent, args, context) => {

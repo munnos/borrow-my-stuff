@@ -1,16 +1,17 @@
 import React from "react";
 import { Button, Image } from "react-bootstrap";
 import { useQuery } from "@apollo/client";
-import { QUERY_PRODUCTS } from "../utils/queries";
-import { Link } from "react-router-dom";
+import { QUERY_LISTEDCATEGORIES } from "../utils/queries";
+import { Link, useParams } from "react-router-dom";
 import ProductList from "../components/ProductList";
 import Container from "react-bootstrap/Container";
 
 
 const ViewListingsByCategory = () => {
-  const { loading, data } = useQuery(QUERY_PRODUCTS);
+  let { id } = useParams(); 
+  const { loading, data } = useQuery(QUERY_LISTEDCATEGORIES, { variables: { _id: id}});
 
-  const productsByCategory = data?.products || [];
+  const productsByListedCategory = data?.category || [];
 
   return (
     <main>
@@ -19,7 +20,7 @@ const ViewListingsByCategory = () => {
             <div>Loading...</div>
           ) : (
             <ProductList
-              products={productsByCategory}
+              products={productsByListedCategory}
               title="Here is the list of products in your chosen category"
             />
           )}
