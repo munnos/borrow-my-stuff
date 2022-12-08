@@ -70,9 +70,6 @@ export const QUERY_USER = gql`
     }
   }
 `;
-/******Borrow my stuff queries********/
-
-
 
 export const QUERY_BMS_CATEGORY = gql`
   query getBMSCategoryIdByName($name: String) {
@@ -81,4 +78,25 @@ export const QUERY_BMS_CATEGORY = gql`
             name
           }
   }
+
+export const QUERY_All_CATEGORIES = gql`
+  query GetAllListingCategories {
+  getAllListingCategories {
+    name
+    image
+    _id
+  }
+}
+`;
+
+export const QUERY_ALL_LISTED_PRODUCTS = gql`
+ query GetAllListedProducts {
+  getAllListedProducts {
+    _id
+    borrowDuration
+    image
+    listingDate
+    name
+  }
+}
 `;
