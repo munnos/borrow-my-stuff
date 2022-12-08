@@ -1,0 +1,12 @@
+#categoryImg {
+    display: flex;
+    height: 160px;
+}
+
+#categoryLink {
+    text-decoration: none;
+}
+
+#categoryCard {
+    margin-bottom:10px ;
+}
