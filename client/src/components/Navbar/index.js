@@ -20,6 +20,9 @@ function Navtest() {
         <Link to="/userDash" className="nav-link">
               View Profile
             </Link> 
+            <Link to="/addListItem" className="nav-link">
+             List an Item
+            </Link>
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <Nav.Link href="/" onClick={() => Auth.logout()}>Logout</Nav.Link>
             

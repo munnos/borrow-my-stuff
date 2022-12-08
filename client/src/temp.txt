@@ -1,0 +1,33 @@
+mutation ListAProduct($name: String!, $description: String!, $image: String!, $category: ID!) {
+    listAProduct(name: $name, description: $description, image: $image, category: $category) {
+      name
+      description
+      image
+    }
+  }
+
+  mutation RequestAProduct($listingProduct: ID!, $duration: String!) {
+  requestAProduct(listingProduct: $listingProduct, duration: $duration) {
+    active
+    approved
+    dateRequested
+    duration
+  
+  }
+}
+
+query GetRequestsForProductIListed($listingProduct: ID!) {
+  getRequestsForProductIListed(listingProduct: $listingProduct) {
+    _id
+    active
+    approved
+    dateRequested
+    duration
+    requestee {
+      _id
+      email
+      firstName
+      lastName
+    }
+  }
+}

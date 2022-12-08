@@ -15,29 +15,29 @@ const Home = () => {
   const { loading, data } = useQuery(QUERY_All_CATEGORIES);
   const categories = data?.getAllListingCategories || [];
   
-  return (
-    <div>
-      <Container>
-        {/* <Row className="px-4 my-5">
-          <Col sm={7}>
-            <Image src="https://picsum.photos/900/400/" fluid rounded />
-          </Col>
-          <Col sm={5}>
-            <h1 className="font-weight-light"> Tagline</h1>
-            <p>
-              Borrow my Stuff is a not-for-profit organisation linking
-              communities of like minded people who ....
-            </p>
-            <Button
-              className="button"
-              variant="outline-primary"
-              href="/aboutus"
-            >
-              Support our cause
-            </Button>
-          </Col>
-        </Row> */}
-        <Row>
+  
+  return(
+  <div>
+    <Container>
+      <Row className="px-4 my-5">
+        <Col sm={7}>
+        <Image src="https://picsum.photos/900/400/" fluid
+         rounded />
+        </Col>  
+        <Col sm={5}> 
+          <h1 className="font-weight-light"> Tagline</h1>
+          <p>
+            Borrow my Stuff is a not-for-profit organisation linking communities of like minded people who ....
+          </p>
+          <Button className="button" variant="outline-primary" href="/donate" >Support our cause</Button>
+        </Col>
+      </Row>
+       <Row>
+        <Card className="text-center bg-secondary text-white my-5 py-4">
+          <Card.Body>Are you ready to join a community of like-minded people?  Select a category and start your Borrow my Stuff journey today...</Card.Body>
+        </Card>
+      </Row> 
+      <Row>
           <Card className="text-center bg-secondary text-white my-5 py-4">
             <Card.Body>
               Are you ready to join a community of like-minded people? Select a
