@@ -78,3 +78,15 @@ export const QUERY_All_CATEGORIES = gql`
   }
 }
 `;
+
+export const QUERY_ALL_LISTED_PRODUCTS = gql`
+  getAllListedProducts {
+    image
+    name
+    user {
+      firstName
+    }
+    _id
+    listingDate
+  }
+`;

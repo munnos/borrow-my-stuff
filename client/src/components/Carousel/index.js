@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-// import Flickity from "react-flickity-component";
+import Flickity from "react-flickity-component";
 import './style.css';
 import "./flickity.css";
 
@@ -69,7 +69,7 @@ const dummyData = [{
           <img src={""} alt="" className={"carouselImg"} />
           </div>
 
-            </Flickity>
+        </Flickity>
   );
 }
 export default Carousel;
