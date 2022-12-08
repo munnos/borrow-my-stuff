@@ -92,7 +92,7 @@ export const QUERY_BMS_CATEGORY = gql`
             name
           }
   }
-
+`
 export const QUERY_All_CATEGORIES = gql`
   query GetAllListingCategories {
   getAllListingCategories {
