@@ -99,6 +99,7 @@ const resolvers = {
       return results;
     },
     getListedProductsByCategory: async (parent, args, context) => {
+      // const results = await ListingProduct.find({category: args._id});
       const results = await ListingProduct.find({category: args.category}).populate('category').populate('user');
       return results;
     },

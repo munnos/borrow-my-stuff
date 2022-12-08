@@ -50,6 +50,20 @@ export const QUERY_CATEGORIES = gql`
   }
 `;
 
+export const QUERY_LISTEDCATEGORIES = gql`
+query GetListedProductsByCategory($category: ID) {
+  getListedProductsByCategory(category: $category) {
+    _id
+    category {
+      name
+      _id
+    }
+  }
+}
+`;
+
+
+
 export const QUERY_USER = gql`
   {
     user {
