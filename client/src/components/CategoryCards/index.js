@@ -10,16 +10,15 @@ import React from "react";
 
 const CategoryCards = (props) => {
   let categories = props.categories;
-  console.log(props.categories)
-  // if (!categories.length) {
-  //   return <h3>No Categories Yet</h3>;
-  // }
+  if (!categories.length) {
+    return <h3>No Categories Yet</h3>;
+  }
     return (
       <Container fluid>
       <Row className="justify-content-md-center">
         {categories && 
           categories.map((category) => (
-        <Col className="">
+        <Col>
         <a id="categoryLink" href ="">
         <Card id="categoryCard" style={{ width: '13rem'}} key={category._id}>
           <Card.Img id="categoryImg" variant="top" src={category.image} />

@@ -1,7 +1,7 @@
 import React from "react";
 import { Button, Image } from "react-bootstrap";
 import Cart from "../components/Cart";
-//import Carousel from "../components/Carousel";
+import Carousel from "../components/Carousel";
 import { useQuery } from "@apollo/client";
 import { QUERY_All_CATEGORIES } from "../utils/queries";
 import { Link } from "react-router-dom";
@@ -14,13 +14,11 @@ import Card from "react-bootstrap/Card";
 const Home = () => {
   const { loading, data } = useQuery(QUERY_All_CATEGORIES);
   const categories = data?.getAllListingCategories || [];
-
-  // const topProduct = [];
-
+  
   return (
     <div>
       <Container>
-        <Row className="px-4 my-5">
+        {/* <Row className="px-4 my-5">
           <Col sm={7}>
             <Image src="https://picsum.photos/900/400/" fluid rounded />
           </Col>
@@ -38,7 +36,7 @@ const Home = () => {
               Support our cause
             </Button>
           </Col>
-        </Row>
+        </Row> */}
         <Row>
           <Card className="text-center bg-secondary text-white my-5 py-4">
             <Card.Body>
@@ -54,8 +52,8 @@ const Home = () => {
             <CategoryCards categories={categories} />
           )}
         </div>
+        <Carousel />
       </Container>
-
       <Cart />
     </div>
   );
