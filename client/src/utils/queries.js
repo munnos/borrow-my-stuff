@@ -68,3 +68,13 @@ export const QUERY_USER = gql`
     }
   }
 `;
+
+export const QUERY_All_CATEGORIES = gql`
+  query GetAllListingCategories {
+  getAllListingCategories {
+    name
+    image
+    _id
+  }
+}
+`;
