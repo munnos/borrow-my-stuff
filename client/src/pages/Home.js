@@ -14,13 +14,11 @@ import Card from "react-bootstrap/Card";
 const Home = () => {
   const { loading, data } = useQuery(QUERY_All_CATEGORIES);
   const categories = data?.getAllListingCategories || [];
-
-  // const topProduct = [];
-
+  
   return (
     <div>
       <Container>
-        <Row className="px-4 my-5">
+        {/* <Row className="px-4 my-5">
           <Col sm={7}>
             <Image src="https://picsum.photos/900/400/" fluid rounded />
           </Col>
@@ -38,7 +36,7 @@ const Home = () => {
               Support our cause
             </Button>
           </Col>
-        </Row>
+        </Row> */}
         <Row>
           <Card className="text-center bg-secondary text-white my-5 py-4">
             <Card.Body>

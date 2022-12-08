@@ -1,75 +1,47 @@
-import React, { useEffect } from 'react';
+import React, { useState } from "react";
 import Flickity from "react-flickity-component";
-import './style.css';
+import { useQuery } from "@apollo/client";
+import { QUERY_ALL_LISTED_PRODUCTS } from "../../utils/queries";
+import "./style.css";
 import "./flickity.css";
 
-
 const flickityOptions = {
-    autoPlay: 8500,
-}
+  autoPlay: 5000,
+  draggable: false,
+  freeScroll: true,
+  wrapAround: true,
+  groupCells: 2,
+  pauseAutoPlayOnHover: true,
+  imagesLoaded: true,
+  lazyLoad: true,
+  initialIndex: 2,
+};
 
-function Carousel(props) {
+function Carousel() {
+  const { loading, data } = useQuery(QUERY_ALL_LISTED_PRODUCTS);
+  const listedProducts = data?.getAllListedProducts || [];
 
-const products = props.products;
+  console.log(listedProducts);
 
-const dummyData = [{
-    image: "https://i.ebayimg.com/images/g/4NgAAOSwkLhaOha8/s-l500.jpg", 
-    name: "Kettle"
-},
-
-{
-    image: "https://i.ebayimg.com/images/g/4NgAAOSwkLhaOha8/s-l500.jpg", 
-    name: "Kettle"
-},
-
-{
-    image: "https://i.ebayimg.com/images/g/4NgAAOSwkLhaOha8/s-l500.jpg", 
-    name: "Kettle"
-},
-
-{
-    image: "https://i.ebayimg.com/images/g/4NgAAOSwkLhaOha8/s-l500.jpg", 
-    name: "Kettle"
-},
-
-{
-    image: "https://i.ebayimg.com/images/g/4NgAAOSwkLhaOha8/s-l500.jpg", 
-    name: "Kettle"
-},
-
-]
-
-        return (
-          <Flickity 
-          className={'carousel'} 
-          elementType={'div'} 
-          options={flickityOptions} 
-        >
-          <div className={"carousel-cell"}>
-          <img src={""} alt="" className={"carouselImg"} />
-          </div>
-
-          <div className={"carousel-cell"}>
-          <img src={""} alt="" className={"carouselImg"} />
-          </div>
-
-          <div className={"carousel-cell"}>
-          <img src={""} alt="" className={"carouselImg"} />
-          </div>
-
-          <div className={"carousel-cell"}>
-          <img src={""} alt="" className={"carouselImg"} />
-          </div>
-
-          <div className={"carousel-cell"}>
-          <img src={""} alt="" className={"carouselImg"} />
-          </div>
-
-          <div className={"carousel-cell"}>
-          <img src={""} alt="" className={"carouselImg"} />
-          </div>
-
-        </Flickity>
+  return (
+    <div>
+      <h2 id="title">Recently listed stuff...</h2>
+      <Flickity
+        className={"carousel"}
+        elementType={"div"}
+        options={flickityOptions}
+      >
+        {listedProducts &&
+          listedProducts.map(
+            (product, index) =>
+              index < 9 && (
+                <div className={"carousel-cell"} key={product._id}>
+                  <img src={product.image} alt="" className={"carouselImg"} />
+                </div>
+              )
+          )}
+      </Flickity>
+    </div>
   );
 }
 export default Carousel;
