@@ -69,12 +69,14 @@ const ListItemForm = () => {
                     category,                    
                   },
                 });
+                
           
                } catch (err) {
                 console.error(err);
 
                }
-                    
+               //reset form fields
+               setForm({name: '', description: '', image:'', category: '', duration: ''});
 
         }
         //console.log(token);
