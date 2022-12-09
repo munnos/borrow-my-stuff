@@ -189,8 +189,10 @@ const resolvers = {
       return { token, user };
     },
     listAProduct: async (parent, { name, description, image, category}, context) => {
+      console.log("inside list a product")
       if (context.user) {
-        return await ListingProduct.create({ name, description, image, category, user: context.user._id});
+        const data = await ListingProduct.create({ name, description, image, category, user: context.user._id});
+        return { data }
       }
       throw new AuthenticationError('Not logged in');
     },
@@ -230,10 +232,3 @@ const resolvers = {
 
 module.exports = resolvers;
 
-// listAProduct: async (parent, args, context) => {
-//   if (context.user) {
-//     return await ListingProduct.create();
-//   }
-
-//   throw new AuthenticationError('Not logged in');
-// },

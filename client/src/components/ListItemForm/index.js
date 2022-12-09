@@ -5,17 +5,28 @@ import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
-import Alert from "react-bootstrap/Alert";
 import Auth from '../../utils/auth';
-import { useQuery } from '@apollo/client'
-import { QUERY_BMS_CATEGORY } from  '../../utils/queries' 
+import { useQuery } from "@apollo/client";
+import { useMutation } from "@apollo/client";
+import { QUERY_All_CATEGORIES } from  '../../utils/queries'; 
+import { LIST_AN_ITEM } from  '../../utils/mutations'; 
 
 
 
 
 const ListItemForm = () => {
-    const [form, setForm] = useState({});
-    const [errors, setErrors] = useState({});
+    const [form, setForm] = useState("");
+    const [errors, setErrors] = useState({});    
+
+    const { loading, data } = useQuery(QUERY_All_CATEGORIES);
+    const categories = data?.getAllListingCategories || [];
+    
+    console.log(categories);
+
+
+    const [ listAProduct, { error } ] = useMutation(LIST_AN_ITEM)
+   
+    
 
     const setField = (field, value) => {
         setForm({
@@ -30,7 +41,7 @@ const ListItemForm = () => {
         })   
     }
     
-    const handleSubmit = e => {
+    const handleSubmit = async (e) => {
         e.preventDefault()
         console.log(form);
 
@@ -40,11 +51,30 @@ const ListItemForm = () => {
         {
             console.log("Items in the form")        
             console.log("user logged in")        
-            console.log(form.category);
+            console.log(form);
             //find category id
-            // const { loading, data } = useQuery(QUERY_BMS_CATEGORY , {
-            //     variables: { name: form.category },
-            // });
+
+            const name = form.name;
+            const category = form._id;
+            const image = form.image;
+            const description = form.description
+            console.log(name, category, image, description);
+
+            try {
+                const { data } = await listAProduct({
+                  variables: {
+                    name,
+                    description,
+                    image,
+                    category,                    
+                  },
+                });
+          
+               } catch (err) {
+                console.error(err);
+
+               }
+                    
 
         }
         //console.log(token);
@@ -58,7 +88,7 @@ const ListItemForm = () => {
        
         <div>
         <h1>List an Item</h1>
-            <Container ClassName="fluid"> 
+            <Container className="fluid"> 
             <Form>
                 
                 <Form.Group>
@@ -81,29 +111,24 @@ const ListItemForm = () => {
                 </Form.Group>
 
                 <Form.Group >
-                <Form.Label>Enter a link to your image link:</Form.Label>
+                <Form.Label>Enter image link:</Form.Label>
                 <Form.Control name="image" type="text" 
-                            placeholder="Enter your Image link "
+                            placeholder="Enter your image link "
                             value={form.image}                          
                             onChange={e=>setField('image', e.target.value)}  />
                 </Form.Group>
 
+                
                 <Form.Group controlId>
                     <Form.Label>Select a category for your listing</Form.Label>
                     <Form.Select 
                         value={form.category}                    
                          placeholder="Select category"
-                         onChange={e=> {setField('category', e.target.value)}}>
+                         onChange={e => {setField('_id', e.target.value)}}>
                         <option>Select Category</option>
-                        {[{_id: 1, name: 'test'}].map(e => <option value={e._id}>{e.name}</option>)}
-                        <option value="Home Appliances">Home Appliances</option>
-                        <option value="Garden Equipment">Garden Equipment</option>
-                        <option value="Electronics">Electronics</option>
-                        <option value="Furniture">Furniture</option>
-                        <option value="Gym Equipment">Gym Equipment</option>
-                        <option value="Transport">Transport</option>
-                        <option value="Help Offered">Help Offered</option>
-                        <option value="Help Needed">Help Needed</option>
+                        {categories.map((option, index) => (
+                        <option key={index} value={option._id}>{option.name}</option>))}                    
+                        
                     </Form.Select>
                 </Form.Group>
 
@@ -155,3 +180,4 @@ const ListItemForm = () => {
   export default ListItemForm;
 
 
+// {[{_id: 1, name: 'test'}].map(e => <option value={e._id}>{e.name}</option>)}

@@ -19,19 +19,19 @@ const Home = () => {
   return(
   <div>
     <Container>
-      {/* <Row className="px-4 my-5">
+       <Row className="px-4 my-5">
         <Col sm={7}>
         <Image src="https://picsum.photos/900/400/" fluid
          rounded />
         </Col>  
         <Col sm={5}> 
-          <h1 className="font-weight-light"> Tagline</h1>
+          <h1 className="font-weight-light"> Sharing Economy</h1>
           <p>
-            Borrow my Stuff is a not-for-profit organisation linking communities of like minded people who ....
+          Borrow my Stuff is a not-for-profit organisation with a mission to link communities of like minded people who are willing to share their time, and lend items to others in need.  If you have items that you don’t use often - list them on our site and we’ll connect you with people who want to borrow them. Alternatively, you might want to borrow something yourself... signup and join our community.
           </p>
-          <Button className="button" variant="outline-primary" href="/donate" >Support our cause</Button>
+          <Button className="button" variant="outline-primary" href="/donate" >Support our mission</Button>
         </Col>
-      </Row> */}
+      </Row> 
       <Row>
           <Card className="text-center bg-secondary text-white my-5 py-4">
             <Card.Body>
@@ -47,7 +47,7 @@ const Home = () => {
             <CategoryCards categories={categories} />
           )}
         </div>
-        <Carousel />
+         <Carousel /> 
       </Container>
       <Cart />
     </div>
