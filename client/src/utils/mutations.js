@@ -50,17 +50,24 @@ export const ADD_USER = gql`
   }
 `;
 //////Borrow my stuff mutations below/////
-export const LIST_ITEM = gql`
-mutation listAProduct(
-  $name: String!
-  $description: String!   
-) {
-  listAProduct(
-    name: String
-    description: String
-  )
 
-}`;
-//from listaproduct
-// $category: ListingProduct
-  // $user: User
+export const LIST_AN_ITEM = gql`
+  mutation listAProduct(
+    $name: String!,
+    $description: String!,
+      $image: String!,
+      $category: ID!)
+     {
+        listAProduct(
+          name: $name,
+          description: $description, 
+          image: $image,
+          category: $category
+          ) {
+          name
+          description
+          image
+        }
+      }
+  `;
+

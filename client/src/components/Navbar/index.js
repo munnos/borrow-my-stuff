@@ -23,10 +23,10 @@ function Navtest() {
             <Link to="/addListItem" className="nav-link">
              List an Item
             </Link>
+            <Nav.Link href="#link">Your Listed Items</Nav.Link>
             {/* this is not using the Link component to logout or user and then refresh the application to the start */}
             <Nav.Link href="/" onClick={() => Auth.logout()}>Logout</Nav.Link>
-            
-           
+                       
        </>
       );
     } else {
@@ -62,7 +62,7 @@ function Navtest() {
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
             <Link className="nav-link" to="/">Home</Link>
-            <Nav.Link href="#link">Your Listed Items</Nav.Link>
+           
             {showNavigation()}
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
             <NavDropdown.Item href="/">
