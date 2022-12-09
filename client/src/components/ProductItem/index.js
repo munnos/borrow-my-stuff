@@ -4,6 +4,7 @@ import { pluralize } from "../../utils/helpers"
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
+import { Button, Card, Container, Row, Col } from 'react-bootstrap' 
 
 function ProductItem(item) {
   const [state, dispatch] = useStoreContext();
@@ -40,7 +41,33 @@ function ProductItem(item) {
   }
 
   return (
-    <div className="card px-1 py-1">
+    <Container fluid>    
+      <Card style={{ width: '13rem'}}>
+      <Link to={`/products/${_id}`}>
+        <Card.Img
+        variant="top"
+          alt={name}
+          src={`/images/${image}`}
+        />
+        
+        <p>Item name: {name}</p>
+      </Link>
+      
+      <div>
+        {/* <div>{quantity} {pluralize("item", quantity)} in stock</div> */}
+        <span>Cost: £{price}</span>
+      </div>
+      <Button variant="outline-success" onClick={addToCart}>Add to cart</Button>
+     
+      </Card>      
+    </Container>
+  );
+}
+
+export default ProductItem;
+
+
+{/* <div className="card px-1 py-1">
       <Link to={`/products/${_id}`}>
         <img
           alt={name}
@@ -49,12 +76,8 @@ function ProductItem(item) {
         <p>{name}</p>
       </Link>
       <div>
-        <div>{quantity} {pluralize("item", quantity)} in stock</div>
-        <span>${price}</span>
-      </div>
-      <button onClick={addToCart}>Add to cart</button>
-    </div>
-  );
-}
-
-export default ProductItem;
+        {/* <div>{quantity} {pluralize("item", quantity)} in stock</div> */}
+    //     <span>£{price}</span>
+    //   </div>
+    //   <button onClick={addToCart}>Add to cart</button>
+    // </div> */}
