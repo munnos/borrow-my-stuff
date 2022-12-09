@@ -70,4 +70,13 @@ export const LIST_AN_ITEM = gql`
         }
       }
   `;
-
+ export const REQUEST_AN_ITEM = gql`
+  mutation RequestAProduct($listingProduct: ID!, $duration: String!) {
+    requestAProduct(listingProduct: $listingProduct, duration: $duration) {
+      active
+      approved
+      dateRequested
+      duration
+    
+    }
+  }`;
