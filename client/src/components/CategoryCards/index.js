@@ -3,6 +3,7 @@ import Button from 'react-bootstrap/Button';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
 import Container from 'react-bootstrap/Container';
+import { Link } from "react-router-dom";
 import "./style.css"
 
 import React from "react";
@@ -19,15 +20,20 @@ const CategoryCards = (props) => {
         {categories && 
           categories.map((category) => (
         <Col>
-        <a id="categoryLink" href ="">
+       
         <Card id="categoryCard" style={{ width: '13rem'}} key={category._id}>
+        
           <Card.Img id="categoryImg" variant="top" src={category.image} />
           <Card.Body>
-            <Card.Title>{category.name}</Card.Title>
+          {/* <Link className="btn"to={`/listingCategories/${category._id}`}> */}
+            {/* <Card.Title></Card.Title> */}
             {/* <Button variant="primary">Go somewhere</Button> */}
+            <Link to={`/categories/${category._id}`}>
+            <Button className="button" variant="outline-success"  >{category.name}</Button>
+            </Link>
           </Card.Body>
       </Card>
-      </a>
+     
       </Col>
       ))}
       </Row>
