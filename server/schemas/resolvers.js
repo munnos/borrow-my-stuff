@@ -99,13 +99,15 @@ const resolvers = {
       return results;
     },
     getListedProductsByCategory: async (parent, args, context) => {
-      // const results = await ListingProduct.find({category: args._id});
       const results = await ListingProduct.find({category: args.category}).populate('category').populate('user');
       return results;
     },
     getListedProductsByUser: async (parent, args, context) => {
-      const results = await ListingProduct.find({user: args.user}).populate('category').populate('user');
+      if (context.user) {
+      const results = await ListingProduct.find({user: context.user._id}).populate('category').populate('user');
       return results;
+      }
+      throw new AuthenticationError('Not logged in');
     },
     getMyListedProducts: async (parent, args, context) => {
       if (context.user) {
