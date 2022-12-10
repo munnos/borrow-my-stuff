@@ -153,12 +153,6 @@ query GetListedProductById($id: ID!) {
     }
   }
 }
-
-
-
-
-
-
 `;
 
 

@@ -8,19 +8,23 @@ import { LISTED_PRODUCTS } from '../utils/queries';
 const ListedProduct = () => {
     // queries are run here
     // 1. get an id to run a query to get an item ?
-    const {_id} = useParams(); // this comes from another component
-
+    const { _id } = useParams(); // this comes from another component
+    console.log(_id);
     const { loading, data } = useQuery(LISTED_PRODUCTS, {
       // pass URL parameter
-      variables: { _id: _id },
+      variables: {  id: _id },
     });
-  
+    // const test = { getListedProductId }
+    console.log(data);
+    //console.log(test);
+    console.log(loading);
+
     const item = data?.ListedProduct || {};
   
     // 2. use useQuery to run the query to fetch a product by id
     // store the data in a const called 'item'
 
-
+    console.log()
 
     
 
