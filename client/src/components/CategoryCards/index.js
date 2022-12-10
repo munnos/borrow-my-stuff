@@ -26,9 +26,9 @@ const CategoryCards = (props) => {
           <Card.Img id="categoryImg" variant="top" src={category.image} />
           <Card.Body>
           {/* <Link className="btn"to={`/listingCategories/${category._id}`}> */}
-            <Card.Title></Card.Title>
+            {/* <Card.Title></Card.Title> */}
             {/* <Button variant="primary">Go somewhere</Button> */}
-            <Link to={`/ListingCategories/${category._id}`}>
+            <Link to={`/categories/${category._id}`}>
             <Button className="button" variant="outline-success"  >{category.name}</Button>
             </Link>
           </Card.Body>
