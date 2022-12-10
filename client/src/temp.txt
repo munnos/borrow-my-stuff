@@ -31,3 +31,6 @@ query GetRequestsForProductIListed($listingProduct: ID!) {
     }
   }
 }
+
+
+id for gym category:6393c1ce04d28ef7a1d5d284
