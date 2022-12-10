@@ -7,6 +7,7 @@ import {
 } from '../../utils/actions';
 import { QUERY_CATEGORIES } from '../../utils/queries';
 import { idbPromise } from '../../utils/helpers';
+import { Button, Container, Row, Card } from 'react-bootstrap' 
 
 function CategoryMenu() {
   const [state, dispatch] = useStoreContext();
@@ -42,20 +43,30 @@ function CategoryMenu() {
   };
 
   return (
-    <div>
+    <Container>
+    <Row>
+    <h1 className="mt-4">Support our Mission</h1>
+         <Card className="text-center bg-secondary text-white my-5 py-4">
+            <Card.Body>
+            <h3>By donating money, or buying our branded products, you can help keep this website running.</h3>
+            </Card.Body>
+          </Card>
+        </Row>
       <h2>Choose a Category:</h2>
       {categories.map((item) => (
-        <button
+        <Button
+        className='mx-2, mb-4'
+        variant="outline-success"
           key={item._id}
           onClick={() => {
             handleClick(item._id);
           }} 
         >
           {item.name}
-        </button>
+        </Button>
         
       ))}
-    </div>
+    </Container>
   );
 }
 

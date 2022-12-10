@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import Card from "react-bootstrap/Card";
 import Container from "react-bootstrap/Container";
 import Row from "react-bootstrap/Row";
-import Col from "react-bootstrap/Col";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
 import Auth from '../../utils/auth';
@@ -15,7 +14,7 @@ import { LIST_AN_ITEM } from  '../../utils/mutations';
 
 
 const ListItemForm = () => {
-    const [form, setForm] = useState("");
+    const [form, setForm] = useState({});
     const [errors, setErrors] = useState({});    
 
     const { loading, data } = useQuery(QUERY_All_CATEGORIES);
@@ -140,6 +139,7 @@ const ListItemForm = () => {
                         value={form.duration}                    
                          placeholder="Listing Duration"
                          onChange={e=> {setField('duration', e.target.value)}}>
+                           <option>Select duration </option>
                             <option value="1 week">1 week </option>
                             <option value="2 week">2 week </option>
                             <option value="3 week">3 week </option>
@@ -159,25 +159,21 @@ const ListItemForm = () => {
                 </Button>
                 </Form.Group>
             </Form>
-            <Row>
-        <Card className="text-center bg-secondary text-white my-5 py-4">
-          <Card.Body>
-          <p>Please upload an image to an image hosting website and paste the link in the form above - we'll link it to your listed item.  </p>
-          <Button ClassName="mb-3" className="button" variant="outline-primary" href="https://imgbb.com/" target="_blank" >Free image hosting site</Button>
-          </Card.Body>
-        </Card>
-      </Row> 
-
-        </Container>
-
-
-        </div>
-
+        <Row>
+            <Card className="text-center bg-secondary text-white my-5 py-4">
+            <Card.Body>
+            <p>Please upload an image to an image hosting website and paste the link in the form above - we'll link it to your listed item.  </p>
+            <Button ClassName="mb-3" className="button" variant="outline-primary" href="https://imgbb.com/" target="_blank" >Free image hosting site</Button>
+            </Card.Body>
+            </Card>
+        </Row> 
+    </Container>
+</div>
         
       
-    )
+    )};
       
-  };
+  
   
   export default ListItemForm;
 

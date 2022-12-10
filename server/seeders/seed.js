@@ -66,6 +66,14 @@ const seedDatabase = async () => {
         quantity: 100,
       },
       {
+        name: "Hoody",
+        category: categories[1]._id,
+        description: "Hoody",
+        image: "hoody.jpg",
+        price: 25.99,
+        quantity: 100,
+      },
+      {
         name: "mug",
         category: categories[1]._id,
         description: "Mug",
@@ -93,7 +101,7 @@ const seedDatabase = async () => {
         name: "Coasters",
         category: categories[1]._id,
         description: "Set of four coaster mats",
-        image: "coasters.jpg",
+        image: "coasters2.jpg",
         price: 20.0,
         quantity: 1000,
       },
