@@ -54,6 +54,7 @@ export const QUERY_LISTEDCATEGORIES = gql`
 query GetListedProductsByCategory($category: ID) {
   getListedProductsByCategory(category: $category) {
     _id
+    name
     category {
       name
       _id
