@@ -135,11 +135,14 @@ const resolvers = {
     getBMSCategoryIdByName: async (parent, args, context) => {
      
         const results = await ListingCategory.findOne({name: args.name});
-        return results;   
+        return results;        
 
-      
+    },
 
-    }
+    getListedProductById:  async (parent, { _id }) => {
+      const results = await ListingProduct.findById({_id}).populate("category").populate("user");
+      return results;
+    },
 
   },
   Mutation: {
