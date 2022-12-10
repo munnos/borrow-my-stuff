@@ -116,6 +116,24 @@ export const QUERY_ALL_LISTED_PRODUCTS = gql`
 }
 `;
 
+export const GET_MY_LISTED_ITEMS = gql`
+query GetListedProductsByUser($user: ID!) {
+  getListedProductsByUser(user: $user) {
+    borrowDuration
+    category {
+      name
+      image
+    }
+    name
+    user {
+      firstName
+    }
+    description
+    image
+    listingDate
+  }
+}
+`;
 
 
 
