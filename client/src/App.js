@@ -23,6 +23,7 @@ import OrderHistory from './pages/OrderHistory';
 import UserDash from './pages/userDash';
 import ListingCategory from './pages/ListingCategories';
 import AddListItem from './pages/AddListItem'
+import ListedProduct from './pages/ListedProduct';
 
 // Construct main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -101,6 +102,11 @@ function App() {
               <Route
               path="/categories/:id"
               element={<ListingCategory />}            
+              />
+
+            <Route
+              path="/listedproduct/:_id"
+              element={<ListedProduct />}            
               />
             </Routes>
             
