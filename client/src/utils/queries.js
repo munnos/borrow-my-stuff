@@ -225,35 +225,3 @@ query GetMyListedProducts {
 `;
 
 
-export const GET_MY_LISTED_PRODUCTS = gql `
-query GetMyListedProducts {
-  getMyListedProducts {
-    _id
-    borrowDuration
-    category {
-      name
-      _id
-    }
-    description
-    image
-    listingDate
-    name
-  }
-}
-`;
-export const GET_ITEM_REQUESTS = gql`
-query GetRequestsForProductIListed($listingProduct: ID!) {
-  getRequestsForProductIListed(listingProduct: $listingProduct) {
-    _id
-    active
-    approved
-    dateRequested
-    duration
-    requestee {
-      _id
-      email
-      firstName
-      lastName
-    }
-  }
-}`;
