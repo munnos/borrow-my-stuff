@@ -13,18 +13,16 @@ const {
 const userData = require("./userData.json");
 const listedCategoryData = require("./listingCategoryData.json");
 
-const seedDatabase = async () => {
+  console.time('seeding');
   db.once("open", async () => {
-    await ShopCategory.deleteMany();
+  await ShopCategory.deleteMany({});
 
     const categories = await ShopCategory.insertMany([
       { name: "Money" },
       { name: "Branded Goods" },
     ]);
 
-    console.log(categories[0]);
-
-    await ShopProduct.deleteMany();
+    await ShopProduct.deleteMany({});
 
     const products = await ShopProduct.insertMany([
       {
@@ -109,40 +107,10 @@ const seedDatabase = async () => {
       },
     ]);
 
-    console.log("Shop Products seeded");
-
-//     await User.deleteMany();
-//     await User.collection.insertMany(userData);
-//     await User.create({
-//       firstName: "Pamela",
-//       lastName: "Washington",
-//       email: "pamela@testmail.com",
-//       password: "password12345",
-//       orders: [
-//         {
-//           products: [products[0]._id, products[0]._id, products[1]._id],
-//         },
-//       ],
-//     });
-//     console.log("Seeding Users...");
-//     console.table(userData);
-
-//     const listingCategories = await ListingCategory.deleteMany();
-//     await ListingCategory.collection.insertMany(listedCategoryData);
-//     console.log("Seeding Listing Categories...");
-//     console.table(listingCategories);
-
-//     await ListingProduct.deleteMany();
-//     await ListingProduct.collection.insertMany(listedProductData);
-//     console.log("Seeding Listed Products...");
-//     console.table(listedProductData);
-
-// process.exit();
+    // console.log("Shop Products seeded");
   
 await ListingCategory.deleteMany();
-const listingCategories = 
-await ListingCategory.insertMany(listedCategoryData);
-console.log(listingCategories);
+const Lcategory = await ListingCategory.insertMany(listedCategoryData);
 await User.deleteMany();
 const usersWithHashedPasswordsPromiseArray = userData.map(
   async (user) => {
@@ -164,8 +132,6 @@ const users = await User.insertMany(usersWithHashedPasswords)
         },
       ],
     });
-    console.log("Seeding Users...");
-    console.table(users);
 
     await ListingProduct.deleteMany();
  const ListingProducts = await ListingProduct.insertMany([
@@ -175,7 +141,7 @@ const users = await User.insertMany(usersWithHashedPasswords)
     "description": "A few scratches but works like new.",
     "image": "https://i.ibb.co/bF72Mbj/camera.jpg",
     "borrowDuration": "2 weeks",
-    "category": listingCategories[2]._id,
+    "category": Lcategory[2]._id,
     "user": users[0]._id
   },
 
@@ -184,7 +150,7 @@ const users = await User.insertMany(usersWithHashedPasswords)
     "description": "A white plastic fold up chair.",
     "image": "https://i.ibb.co/kQTfL1F/folding-Chair.jpg",
     "borrowDuration": "3 months",
-    "category": listingCategories[1]._id,
+    "category": Lcategory[1]._id,
     "user": users[1]._id
   },
   {
@@ -192,7 +158,7 @@ const users = await User.insertMany(usersWithHashedPasswords)
     "description": "A small metal scooter suitable for a pre-teen.",
     "image": "https://i.ibb.co/y5hTLVq/scooter.jpg",
     "borrowDuration": "1 week",
-    "category": listingCategories[4]._id,
+    "category": Lcategory[4]._id,
     "user": users[3]._id
   },
   {
@@ -200,15 +166,15 @@ const users = await User.insertMany(usersWithHashedPasswords)
     "description": "Cast iron Kettlebell with a few small scratches.",
     "image": "https://i.ibb.co/9vqNrg0/kettlebell.jpg",
     "borrowDuration": "2 weeks",
-    "category": listingCategories[2]._id,
-    "user": users[5]._id
+    "category": Lcategory[7]._id,
+    "user": users[7]._id
   },
   {
     "name": "Spade",
     "description": "Small green spade.",
     "image": "https://i.ibb.co/0VmMrLj/spade.jpg",
     "borrowDuration": "3 days",
-    "category": listingCategories[0]._id,
+    "category": Lcategory[0]._id,
     "user": users[6]._id
   },
 
@@ -217,7 +183,7 @@ const users = await User.insertMany(usersWithHashedPasswords)
     "description": "I'm looking for a DJ for my daughter's birthday party.",
     "image": "https://i.ibb.co/FVC0kJb/dj.jpg",
     "borrowDuration": "1 day",
-    "category": listingCategories[6]._id,
+    "category": Lcategory[6]._id,
     "user": users[7]._id
   },
   {
@@ -225,7 +191,7 @@ const users = await User.insertMany(usersWithHashedPasswords)
     "description": "I've got some free time, so I'm looking to spend it washing cars.",
     "image": "https://i.ibb.co/X50DFbq/car-Cleaning.jpg",
     "borrowDuration": "1 month",
-    "category": listingCategories[5]._id,
+    "category": Lcategory[5]._id,
     "user": users[7]._id
   },
   {
@@ -233,19 +199,13 @@ const users = await User.insertMany(usersWithHashedPasswords)
     "description": "Small iron with steaming functionality",
     "image": "https://i.ibb.co/Tvdy4fm/iron.jpg",
     "borrowDuration": "2 weeks",
-    "category": listingCategories[3]._id,
+    "category": Lcategory[3]._id,
     "user": users[8]._id
   }
  ])
- console.table(ListingProducts);
 
+// console.table(users);
+// console.table(ListingProducts);
+console.timeEnd('seeding complete 🌱');
+process.exit(0);
 });
-console.log("Seeding complete! 🌱");
-
-};
-
-seedDatabase();
-process.exit();
-
-
-
