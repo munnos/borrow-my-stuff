@@ -241,11 +241,11 @@ const users = await User.insertMany(usersWithHashedPasswords)
 
 });
 console.log("Seeding complete! 🌱");
-process.exit();
 
 };
 
 seedDatabase();
 process.exit();
+
 
 
