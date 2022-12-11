@@ -58,7 +58,7 @@ const ListItemForm = () => {
             const image = form.image;
             const description = form.description
             console.log(name, category, image, description);
-
+            
             try {
                 const { data } = await listAProduct({
                   variables: {

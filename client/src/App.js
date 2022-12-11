@@ -24,6 +24,7 @@ import UserDash from './pages/userDash';
 import ListingCategory from './pages/ListingCategories';
 import AddListItem from './pages/AddListItem'
 import ListedProduct from './pages/ListedProduct';
+import ItemRequests from './pages/ItemRequests';
 
 // Construct main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -74,6 +75,10 @@ function App() {
                 path="/userDash"
                 element={<UserDash />}              
               />
+              <Route 
+                path="/itemRequests"
+                element={<ItemRequests />}
+              /> 
               <Route 
                 path="/donate"
                 element={<Donate />}
