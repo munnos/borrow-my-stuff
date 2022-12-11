@@ -63,8 +63,6 @@ query GetListedProductsByCategory($category: ID) {
 }
 `;
 
-
-
 export const QUERY_USER = gql`
   {
     user {
