@@ -182,3 +182,20 @@ query GetRequestsIMade {
   }
 }
 `;
+
+export const GET_MY_LISTED_PRODUCTS = gql `
+query GetMyListedProducts {
+  getMyListedProducts {
+    _id
+    borrowDuration
+    category {
+      name
+      _id
+    }
+    description
+    image
+    listingDate
+    name
+  }
+}
+`;
