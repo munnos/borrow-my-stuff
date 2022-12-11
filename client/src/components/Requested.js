@@ -78,7 +78,7 @@ function Requested({ profileView }) {
                   <>
                     <Col>
                       <Card
-                        border="sucess"
+                        border="success"
                         id="reqProdCard"
                         style={{ width: "22rem" }}
                         key={requestedProduct._id}
