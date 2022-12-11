@@ -154,7 +154,7 @@ const ListItemForm = () => {
                 </Form.Group>                
 
                <Form.Group>
-                <Button variant="primary" className="mt-3" onClick={handleSubmit} type="submit">
+                <Button variant="outline-success" className="mt-3"  onClick={handleSubmit} type="submit">
                 Click to list your Item
                 </Button>
                 </Form.Group>
@@ -163,7 +163,7 @@ const ListItemForm = () => {
             <Card className="text-center bg-secondary text-white my-5 py-4">
             <Card.Body>
             <p>Please upload an image to an image hosting website and paste the link in the form above - we'll link it to your listed item.  </p>
-            <Button ClassName="mb-3" className="button" variant="outline-primary" href="https://imgbb.com/" target="_blank" >Free image hosting site</Button>
+            <Button ClassName="mb-3" className="button" variant="outline-success" href="https://imgbb.com/" target="_blank" >Free image hosting site</Button>
             </Card.Body>
             </Card>
         </Row> 
