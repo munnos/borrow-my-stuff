@@ -55,13 +55,17 @@ query GetListedProductsByCategory($category: ID) {
   getListedProductsByCategory(category: $category) {
     _id
     name
+    borrowDuration
     category {
       name
       _id
     }
+    description
   }
 }
 `;
+
+
 
 export const QUERY_USER = gql`
   {

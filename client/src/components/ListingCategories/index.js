@@ -1,133 +1,52 @@
 import React, { useState } from "react";
-import Button from "react-bootstrap/Button";
-import CardHeader from "react-bootstrap/CardHeader";
-import Container from "react-bootstrap/Container";
+import { Button, Col, Container, Row} from "react-bootstrap";
 import "./style.css";
 import Card from "react-bootstrap/Card";
-import { Form } from "react-bootstrap";
-import Auth from "../../utils/auth";
-import { useMutation } from "@apollo/client";
-import { REQUEST_AN_ITEM } from "../../utils/mutations";
+import { Link } from "react-router-dom";
+
 
 const ListingCategories = (props) => {
-  console.log(props.products.getListedProductsByCategory);
+  // console.log(props.products.getListedProductsByCategory.category.name);
   console.log(props);
 
-  const [form, setForm] = useState({});
-  const [errors, setErrors] = useState({});
+  if (!props.products.getListedProductsByCategory.length) {
+    console.log(props.products.length);
 
-  const [requestAProduct, { error }] = useMutation(REQUEST_AN_ITEM);
-
-  const setField = (field, value) => {
-    setForm({
-      ...form,
-      [field]: value,
-    });
-  };
-
-  const handleSubmit = async (e) => {
-    e.preventDefault();
-    console.log(form);
-
-    const token = Auth.loggedIn() ? Auth.getToken() : null;
-
-    if (form !== {} && token) {
-      console.log("Items in the form");
-      console.log("user logged in");
-      console.log(form);
-      //find category id
-
-      const duration = form.duration;
-
-      console.log(duration);
-      // console.log(id);
-      // console.log(listingProduct);
-
-      try {
-        const { data } = await requestAProduct({
-          variables: {
-            // listingProduct,
-            duration,
-          },
-        });
-      } catch (err) {
-        console.error(err);
-      }
-      //reset form fields
-      setForm({ duration: "" });
-    }
-    //console.log(token);
-    if (!token) {
-      return false;
-    }
-  };
-  // if (!products.length) {
-  //   return <h3>No products yet</h3>;
-
-  // }
-  // console.log(products);
+    return <h1> No products listed for this category yet!</h1>;
+  } else if (props.products.getListedProductsByCategory.length)
+    console.log(props.products.getListedProductsByCategory[0].category.name);
   return (
-    <Container>
-      <h1>{props.title} </h1>
+    <Container fluid>
+      <Card className="text-center bg-secondary text-white my-5 py-4">
+        <Card.Body>
+          <h3>{props.products.getListedProductsByCategory[0].category.name}</h3>
+        </Card.Body>
+      </Card>
+      <Row className="">
+        <Col sm={4}>
       {props.products.getListedProductsByCategory &&
         props.products.getListedProductsByCategory.map((product) => (
-          <Card
+          <Card className="text center bg-light text-black"
             key={product}
-            border="dark"
-            style={{
-              width: "80vw",
-              height: "30vh",
-              marginBottom: "2rem",
-              marginTop: "2rem",
-            }}
+            // border="dark"
+            // style={{
+            //   width: "80vw",
+            //   height: "30vh",
+            //   marginBottom: "2rem",
+            //   marginTop: "7rem",
+          
           >
-            <Card.Header>{product.name}</Card.Header>
-            <Form>
-              <Form.Group controlId>
-                <Form.Label>Select a listing duration:</Form.Label>
-                <Form.Select
-                  value={form.duration}
-                  placeholder="Listing Duration"
-                  onChange={(e) => {
-                    setField("duration", e.target.value);
-                  }}
-                >
-                  <option>Select duration </option>
-                  <option value="1 week">1 week </option>
-                  <option value="2 week">2 week </option>
-                  <option value="3 week">3 week </option>
-                  <option value="1 Month">1 Month </option>
-                  <option value="2 Month">2 Month </option>
-                  <option value="3 Month">3 Month </option>
-                  <option value="4 Month">4 Month </option>
-                  <option value="5 Month">5 Month </option>
-                  <option value="Indefinitely">Indefinitely </option>
-                  <option value="Contact Me">Contact Me </option>
-                </Form.Select>
-              </Form.Group>
-
-              <Form.Group>
-                <Button
-                  variant="primary"
-                  className="mt-3"
-                  onClick={handleSubmit}
-                  type="submit"
-                >
-                  Request to Borrow
-                </Button>
-              </Form.Group>
-            </Form>
+            <Card.Header >{product.name}</Card.Header>
+            {/* <Link></Link>More details </Button> to={`/listedproduct/${product._id}`}></Link> */}
+            <Card.Text style={{marginTop: "2rem", marginLeft: "1rem"}}>{product.description}</Card.Text>
+            <Link to={`/listedproduct/${product._id}`}>
+              <Button style={{marginTop: "2rem", marginBottom: "2rem"}}> View item details</Button>
+            </Link>
           </Card>
         ))}
-      ;{/* <Form> */}
-      {/* <Form.Group>
-         <Button variant="primary" className="mt-3" type="submit">
-                        Request to Borrow
-                        </Button>
-                    </Form.Group>
-                </Form>     */}
+          </Col> 
+        </Row>
     </Container>
-  );
-};
+  )}
 
 export default ListingCategories;
