@@ -4,7 +4,7 @@ import { pluralize } from "../../utils/helpers"
 import { useStoreContext } from "../../utils/GlobalState";
 import { ADD_TO_CART, UPDATE_CART_QUANTITY } from "../../utils/actions";
 import { idbPromise } from "../../utils/helpers";
-import { Button, Card, Container, Row, Col } from 'react-bootstrap' 
+import { Button, Card, Container, Row, Col } from 'react-bootstrap'; 
 
 function ProductItem(item) {
   const [state, dispatch] = useStoreContext();
