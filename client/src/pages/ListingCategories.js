@@ -23,7 +23,7 @@ const ViewListingsByCategory = () => {
           ) : (
             <ListingCategories
               products={productsByListedCategory}
-              title="Here is the list of products in your chosen category"
+              // title="Here is the list of products in your chosen category"
             />
           )}
       </Container>
