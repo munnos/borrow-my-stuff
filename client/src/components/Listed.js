@@ -7,15 +7,12 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
-
 function Listed({ profileView }) {
   const { loading, data } = useQuery(GET_MY_LISTED_PRODUCTS);
   const listedProducts = data?.getMyListedProducts || [];
-
   if (!listedProducts.length) {
     return <h3>No Listed Products Yet</h3>;
   }
-
   return (
     <div>
       <Container fluid>
@@ -49,5 +46,4 @@ function Listed({ profileView }) {
     </div>
   );
 }
-
 export default Listed;

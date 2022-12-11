@@ -20,7 +20,7 @@ const  OneListedProduct = (props) =>{
      <Row className="">
         <Col sm={4}>
         <Card style={{ width: '15rem' }}>
-            <Card.Img variant="top" src="https://via.placeholder.com/75" />
+            <Card.Img variant="top" src={props.item.image} />
             <Card.Body>
                 <Card.Title>{props.item.name}</Card.Title>
                 <Card.Text>

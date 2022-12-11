@@ -157,6 +157,8 @@ query GetListedProductById($id: ID!) {
 }
 `;
 
+
+
 export const GET_MY_REQUESTED_ITEMS = gql`
 query GetRequestsIMade {
   getRequestsIMade {
@@ -187,6 +189,24 @@ query GetRequestsIMade {
 }
 `;
 
+
+export const GET_ITEM_REQUESTS = gql`
+query GetRequestsForProductIListed($listingProduct: ID!) {
+  getRequestsForProductIListed(listingProduct: $listingProduct) {
+    _id
+    active
+    approved
+    dateRequested
+    duration
+    requestee {
+      _id
+      email
+      firstName
+      lastName
+    }
+  }
+}`;
+
 export const GET_MY_LISTED_PRODUCTS = gql `
 query GetMyListedProducts {
   getMyListedProducts {
@@ -203,3 +223,5 @@ query GetMyListedProducts {
   }
 }
 `;
+
+
