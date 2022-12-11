@@ -12,7 +12,7 @@ const ViewListingsByCategory = () => {
   let { id } = useParams(); 
   const { loading, data } = useQuery(QUERY_LISTEDCATEGORIES, { variables: { category: id}});
 
-  const productsByListedCategory = data?.category || [];
+  const productsByListedCategory = data || [];
   console.log(data);
 
   return (

@@ -94,6 +94,7 @@ const typeDefs = gql`
     getRequestsIMade: [ListingRequest]
     getRequestsForProductIListed(listingProduct: ID!): [ListingRequest]
     getBMSCategoryIdByName(name:String!): ListingCategory
+    getListedProductById(_id:ID!): ListingProduct
   }
 
   type Mutation {
@@ -105,7 +106,9 @@ const typeDefs = gql`
     listAProduct(name: String!, description: String!, image: String!, category: ID!): ListingProduct
     requestAProduct(listingProduct: ID!, duration: String! ): ListingRequest
     editRequestedProduct(listingRequest: ID!, listingProduct: ID!, decision: String!): ListingRequest
+    
   }
 `;
 
 module.exports = typeDefs;
+// getListedProductById(_id: ID!): ListingProduct

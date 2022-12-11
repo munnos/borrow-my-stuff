@@ -135,6 +135,26 @@ query GetListedProductsByUser($user: ID!) {
 }
 `;
 
+export const LISTED_PRODUCTS =gql`
+query GetListedProductById($id: ID!) {
+  getListedProductById(_id: $id) {
+    borrowDuration
+    description
+    image
+    name
+    user {
+      firstName
+      lastName
+      _id
+    }
+    listingDate
+    category {
+      name
+    }
+  }
+}
+`;
+
 export const GET_MY_REQUESTED_ITEMS = gql`
 query GetRequestsIMade {
   getRequestsIMade {
@@ -164,6 +184,3 @@ query GetRequestsIMade {
   }
 }
 `;
-
-
-
