@@ -37,7 +37,7 @@ function Listed({ profileView }) {
                       Listed on
                       <br /> {listedProduct.listingDate}
                     </Card.Title>
-                    <Link to={`/itemRequests/{listedProduct._id}`}>
+                    <Link to={`/itemRequests/${listedProduct._id}`}>
                       <Button variant="primary">View Requests</Button>
                     </Link>
                   </Card.Body>

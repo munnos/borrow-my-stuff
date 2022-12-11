@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { Link } from "react-router-dom";
 import Flickity from "react-flickity-component";
 import { useQuery } from "@apollo/client";
 import { QUERY_ALL_LISTED_PRODUCTS } from "../../utils/queries";
@@ -6,7 +7,7 @@ import "./style.css";
 import "./flickity.css";
 
 const flickityOptions = {
-  autoPlay: 5000,
+  autoPlay: 3000,
   draggable: false,
   freeScroll: true,
   wrapAround: true,
@@ -36,7 +37,9 @@ function Carousel() {
             (product, index) =>
               index < 9 && (
                 <div className={"carousel-cell"} key={product._id}>
+                  <Link to={`/listedproduct/${product._id}`}>
                   <img src={product.image} alt="" className={"carouselImg"} />
+                  </Link>
                 </div>
               )
           )}
