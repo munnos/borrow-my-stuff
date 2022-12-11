@@ -105,7 +105,7 @@ function App() {
               />
 
             <Route
-              path="/listedproduct/:_id"
+              path="/listedproduct/:id"
               element={<ListedProduct />}            
               />
             </Routes>

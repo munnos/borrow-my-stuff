@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import Container from "react-bootstrap/Container";
 import Button from "react-bootstrap/Button";
 import Form from "react-bootstrap/Form";
+import Card from "react-bootstrap/Card";
 import Auth from '../../utils/auth';
 import { useMutation } from "@apollo/client";
 import { REQUEST_AN_ITEM } from  '../../utils/mutations'; 
@@ -15,11 +16,11 @@ import { REQUEST_AN_ITEM } from  '../../utils/mutations';
 
 //const listItemId = "6390bb527ad86c7a267b10bd"
 
-const RequestToBorrow = () => {
-    const listingProduct = "6394890469fa24eb296bfd46"
+const RequestToBorrow = (props) => {
+    const listingProduct = props.product; //"639475d16b0dbc4a7fb4face" 
     const [form, setForm] = useState({});
-    const [errors, setErrors] = useState({});        
-
+    
+    //console.log(props.product);
 
     const [ requestAProduct, { error } ] = useMutation(REQUEST_AN_ITEM)   
     
@@ -76,12 +77,17 @@ const RequestToBorrow = () => {
     return (
       
         <div>
-            <h1>Request an Item</h1>
+            
+            <Card className="text-center bg-secondary text-white my-5 py-4">           
+            <h6>Do you want to borrow this item</h6>            
+            </Card>       
+     
                 <Container className="fluid"> 
+                
                 <Form>                     
                     
                     <Form.Group controlId>
-                        <Form.Label>Select a listing duration:</Form.Label>
+                        <Form.Label>Select the length of time you would like to borrow this item for:</Form.Label>
                         <Form.Select 
                             value={form.duration}                    
                             placeholder="Listing Duration"
