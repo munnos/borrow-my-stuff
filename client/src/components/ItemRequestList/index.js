@@ -1,6 +1,6 @@
 import React from "react";
 
-function ItemRequestList( { profileView }) {
+function Listed( { profileView }) {
     console.log("inside request component");
     
   return (
@@ -8,4 +8,4 @@ function ItemRequestList( { profileView }) {
   );
 }
 
-export default ItemRequestList;
+export default Listed;

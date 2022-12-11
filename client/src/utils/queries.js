@@ -55,13 +55,17 @@ query GetListedProductsByCategory($category: ID) {
   getListedProductsByCategory(category: $category) {
     _id
     name
+    borrowDuration
     category {
       name
       _id
     }
+    description
   }
 }
 `;
+
+
 
 export const QUERY_USER = gql`
   {
@@ -185,6 +189,58 @@ query GetRequestsIMade {
 }
 `;
 
+
+export const GET_ITEM_REQUESTS = gql`
+query GetRequestsForProductIListed($listingProduct: ID!) {
+  getRequestsForProductIListed(listingProduct: $listingProduct) {
+    _id
+    active
+    approved
+    dateRequested
+    duration
+    requestee {
+      _id
+      email
+      firstName
+      lastName
+    }
+  }
+}`;
+
+export const GET_MY_LISTED_PRODUCTS = gql `
+query GetMyListedProducts {
+  getMyListedProducts {
+    _id
+    borrowDuration
+    category {
+      name
+      _id
+    }
+    description
+    image
+    listingDate
+    name
+  }
+}
+`;
+
+
+export const GET_MY_LISTED_PRODUCTS = gql `
+query GetMyListedProducts {
+  getMyListedProducts {
+    _id
+    borrowDuration
+    category {
+      name
+      _id
+    }
+    description
+    image
+    listingDate
+    name
+  }
+}
+`;
 export const GET_ITEM_REQUESTS = gql`
 query GetRequestsForProductIListed($listingProduct: ID!) {
   getRequestsForProductIListed(listingProduct: $listingProduct) {
