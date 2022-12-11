@@ -76,7 +76,7 @@ function App() {
                 element={<UserDash />}              
               />
               <Route 
-                path="/itemRequests"
+                path="/itemRequests/:id"
                 element={<ItemRequests />}
               /> 
               <Route 
