@@ -2,7 +2,7 @@
 
 import Cart from "../components/Cart";
 import Requested from "../components/Requested"
-import Listed from "../components/Listed"
+import Listed from "../components/ItemRequestList"
 import Liked from "../components/Liked.js"
 import { Button } from 'react-bootstrap' 
 //import User from "../../../server/models/User";
