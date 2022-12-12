@@ -1,6 +1,6 @@
 import React from "react";
 import Card from 'react-bootstrap/Card';
-import { Button, Container } from 'react-bootstrap';
+import { Button, Container, Col } from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { GET_ITEM_REQUESTS } from '../utils/queries';
@@ -16,15 +16,14 @@ const ItemRequests =  () => {
     console.log(data);
     const requestData = data?.getRequestsForProductIListed||{};
     if (!requestData.length) {
-      return <h3>There are no requests to borrow this item yet</h3>;
+      return <h3>There are no requests for this item yet</h3>;
     }
   console.log("inside Item requests page");
   console.log(requestData);
        
   return (
           <Container>
-          <h1>Item requests</h1>
-         
+          
           { loading ? (
             <div>Loading data..</div>
           ) : (                
@@ -32,7 +31,8 @@ const ItemRequests =  () => {
             <ItemRequestList
               requests = { requestData }
               title ="Item requests"
-            /> )}
+            /> )}           
+           
           </Container>
           
         );

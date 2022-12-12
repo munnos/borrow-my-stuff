@@ -169,6 +169,7 @@ query GetRequestsIMade {
     duration
     listingProduct {
       _id
+      name
       borrowDuration
       category {
         _id
