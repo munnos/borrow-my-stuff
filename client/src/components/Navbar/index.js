@@ -66,12 +66,8 @@ function Navtest() {
             {showNavigation()}
             <NavDropdown title="Dropdown" id="basic-nav-dropdown">
             <NavDropdown.Item href="/">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="/Your listed Items">
-                Another action
-              </NavDropdown.Item>
-              <NavDropdown.Item href="/order-history">Order History</NavDropdown.Item>
+                Home
+              </NavDropdown.Item>              
               <NavDropdown.Divider />
               <NavDropdown.Item href="/donate">
                 Support Us

@@ -9,7 +9,6 @@ const AddListItem = () => {
     <div className="container">
           
       <ListItemForm />
-      <RequestToBorrow />
       <Cart />
       
     </div>
