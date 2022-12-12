@@ -76,6 +76,9 @@ function Navtest() {
               <NavDropdown.Item href="/donate">
                 Support Us
               </NavDropdown.Item>
+              <NavDropdown.Item href="/aboutus">
+                About Us
+              </NavDropdown.Item>
             </NavDropdown>
           </Nav>
         </Navbar.Collapse>

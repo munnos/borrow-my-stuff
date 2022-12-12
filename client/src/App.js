@@ -25,6 +25,7 @@ import ListingCategory from './pages/ListingCategories';
 import AddListItem from './pages/AddListItem'
 import ListedProduct from './pages/ListedProduct';
 import ItemRequests from './pages/ItemRequests';
+import Aboutus from './pages/Aboutus';
 
 // Construct main GraphQL API endpoint
 const httpLink = createHttpLink({
@@ -112,6 +113,10 @@ function App() {
             <Route
               path="/listedproduct/:id"
               element={<ListedProduct />}            
+              />
+               <Route
+              path="/aboutus"
+              element={<Aboutus />}            
               />
             </Routes>
             
