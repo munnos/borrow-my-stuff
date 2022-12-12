@@ -83,15 +83,16 @@ Additionally, I want to have the option to either give a donation or buy product
 The following screen shots....
 
 #### Home page
-![image](https://user-images.githubusercontent.com/88617634/207000274-88cf7abf-619a-4e3b-b40c-42febe3526e3.png)
+![image](https://user-images.githubusercontent.com/88617634/207164549-d8e7b49a-f147-4084-b0e2-a51393772416.png)
 
 #### Sign up
 
-![image](https://user-images.githubusercontent.com/88617634/207000390-246441dd-8243-4e81-a603-e5721f358e6f.png)
+![image](https://user-images.githubusercontent.com/88617634/207164750-56d64cb0-880e-46d4-8170-89d5bf1d4ca6.png)
+
 
 #### Login
 
-![image](https://user-images.githubusercontent.com/88617634/207129222-e5f758cd-538f-4644-ad7c-6def99498d98.png)
+![image](https://user-images.githubusercontent.com/88617634/207164809-54686422-1eb1-4304-9b9e-3423f8c37193.png)
 
 
 #### User dashboard
@@ -145,9 +146,9 @@ The following screen shots....
  
   
   ## How to Contribute
-  If you would like to contribute to this project you can contact us  at: 
+  If you would like to contribute to this project you can contact us at: 
   - Amal: https://github.com/AmalHirsi
-  - Ashleigh: https://github.com/
+  - Ashleigh: https://github.com/nxtera
   - Debra: https://github.com/Beanalini
   - Joseph: https://github.com/JospehBalshaw
   - Michael: https://github.com/munnos
