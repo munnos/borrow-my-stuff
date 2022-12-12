@@ -78,7 +78,7 @@ function Listed({ requests}) {
             ) {
               return (
                 <>
-                <Card className="mt-2" key={request._id}>
+                <Card border="warning" className="mt-2" key={request._id}>
                 <Card.Header>Requested by: {request.requestee.firstName}</Card.Header>
                 <Card.Header>Date requested: {request.dateRequested}</Card.Header>
                 <Card.Header>Date requested: {request.requestee.email}</Card.Header>            
@@ -97,7 +97,7 @@ function Listed({ requests}) {
             )  {
               return (
               <>
-              <Card className="mt-2" key={request._id}>
+              <Card border="success" className="mt-2" key={request._id}>
                 <Card.Header>Requested by: {request.requestee.firstName}</Card.Header>
                 <Card.Header>Date requested: {request.dateRequested}</Card.Header>
                 <Card.Header>Date requested: {request.requestee.email}</Card.Header>            
@@ -115,7 +115,7 @@ function Listed({ requests}) {
           ) { 
             return (
               <>
-              <Card className="mt-2" key={request._id}>
+              <Card border="danger" className="mt-2" key={request._id}>
                 <Card.Header>Requested by: {request.requestee.firstName}</Card.Header>
                 <Card.Header>Date requested: {request.dateRequested}</Card.Header>
                 <Card.Header>Date requested: {request.requestee.email}</Card.Header>            
