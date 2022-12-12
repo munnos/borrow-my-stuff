@@ -12,7 +12,7 @@ import Container from "react-bootstrap/Container";
 //approve: false, active: false -> request is no longer active - request denied
 
 function Requested({ profileView }) {
-  console.log("inside request component");
+ 
   const { loading, data } = useQuery(GET_MY_REQUESTED_ITEMS);
   const requestedProducts = data?.getRequestsIMade || [];
   console.log(data);

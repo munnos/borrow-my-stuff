@@ -212,6 +212,7 @@ const resolvers = {
       throw new AuthenticationError('Not logged in');
     },
     editRequestedProduct: async (parent, args, context) => {
+      console.log(args);
       if (context.user) {
         const decision = args.decision;
         let newActiveValue = null;
