@@ -32,7 +32,6 @@ const UserDash = () => {
     console.log('handleClick 👉️',  event.target.value);
     //testing(event.target.value);
   }
-
    const testing = (profileView) =>{
     console.log('profileView:', profileView)
       if(profileView === "requested") {
