@@ -1,3 +1,20 @@
 h1 {
     margin-top: 2rem;
 }
+
+.listed-product {
+    border-style: none;
+    margin: 0 auto;
+    padding: 0;
+}
+
+.productDesc {
+    /* text-align: left; */
+    margin: 5px;
+    padding: 0;
+}
+
+
+.card-footer {
+    margin-bottom: 0;
+}

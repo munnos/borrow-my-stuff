@@ -7,3 +7,12 @@
 .cardFooter {
     margin-bottom: 0;
 }
+
+#heroImg {
+    display: flex;
+    margin: 0 auto;
+}
+
+.listedItemsCard {
+    margin: 10px;
+}

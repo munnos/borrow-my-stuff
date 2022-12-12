@@ -19,9 +19,9 @@ const Home = () => {
   return(
   <div>
     <Container>
-       <Row className="px-4 my-5">
-        <Col sm={7}>
-         <Image style={{ width: 300, height: 300 }} src="./images/homeimage.png" fluid
+       <Row className="px-4 my-4">
+        <Col sm={6}>
+         <Image id="heroImg"style={{ width: 300, height: 300 }} src="./images/homeimage.png" fluid
          rounded />
         </Col>  
         <Col sm={5}> 
@@ -33,7 +33,7 @@ const Home = () => {
         </Col>
       </Row> 
       <Row>
-          <Card className="text-center bg-secondary text-white my-5 py-4">
+          <Card className="text-center bg-secondary fw-bold text-white my-5 py-2">
             <Card.Body>
               Are you ready to join a community of like-minded people? Select a
               category and start your Borrow my Stuff journey today...

@@ -23,10 +23,10 @@ const ListingCategories = (props) => {
         </Card.Body>
       </Card>
       <Row className="">
-        <Col sm={4}>
       {props.products.getListedProductsByCategory &&
         props.products.getListedProductsByCategory.map((product) => (
-          <Card className="text center bg-light text-black"
+          <Card className="listed-product bg-light text-black text-center"
+          style={{ width: '45rem' }}
             key={product}
             // border="dark"
             // style={{
@@ -36,15 +36,17 @@ const ListingCategories = (props) => {
             //   marginTop: "7rem",
           
           >
-            <Card.Header >{product.name}</Card.Header>
+            <Card.Header as="h3" className="bg-dark text-success fw-bold">{product.name}</Card.Header>
             {/* <Link></Link>More details </Button> to={`/listedproduct/${product._id}`}></Link> */}
-            <Card.Text style={{marginTop: "2rem", marginLeft: "1rem"}}>{product.description}</Card.Text>
+            <Card.Text as="h5" className="productDesc">Description: {product.description}</Card.Text>
             <Link to={`/listedproduct/${product._id}`}>
-              <Button style={{marginTop: "2rem", marginBottom: "2rem"}}> View item details</Button>
+              <Button style={{marginTop: "8px", marginBottom: "10px"}}> View item details</Button>
             </Link>
+            <Card.Footer as="h6" className="card-footer text-center fw-bold available-duration">
+            Available to borrow for {product.borrowDuration}
+                        </Card.Footer>
           </Card>
-        ))}
-          </Col> 
+        ))} 
         </Row>
     </Container>
   )}
