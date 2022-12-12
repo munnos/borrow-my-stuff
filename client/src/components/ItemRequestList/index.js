@@ -76,7 +76,7 @@ function Listed({ requests}) {
                 <Card border="warning" className="mt-2" key={request._id}>
                 <Card.Header>Requested by: {request.requestee.firstName}</Card.Header>
                 <Card.Header>Date requested: {request.dateRequested}</Card.Header>
-                <Card.Header>Date requested: {request.requestee.email}</Card.Header>            
+                <Card.Header><a href={`mailto:{request.requestee.email}`} target="_blank" rel="noreferrer" title={request.listingProduct.name}>Email: {request.requestee.email}</a></Card.Header>        
                 <Card.Header>Approval Status: {'Pending'}</Card.Header>               
                 <Card.Body>        
                 <Button variant="outline-success" value={ 'approved'}  onClick={event => handleApprove(event, request._id, request.listingProduct._id)} type="submit">Approve</Button>{' '}
@@ -95,7 +95,7 @@ function Listed({ requests}) {
               <Card border="success" className="mt-2" key={request._id}>
                 <Card.Header>Requested by: {request.requestee.firstName}</Card.Header>
                 <Card.Header>Date requested: {request.dateRequested}</Card.Header>
-                <Card.Header>Date requested: {request.requestee.email}</Card.Header>            
+                <Card.Header><a href={`mailto:{request.requestee.email}`} target="_blank" rel="noreferrer" title={request.listingProduct.name}>Email: {request.requestee.email}</a></Card.Header>      
                 <Card.Header>Approval Status: {'Approved'}</Card.Header>               
                 <Card.Body>        
                 <Button variant="outline-success" value={ 'approved'}  onClick={event => handleApprove(event, request._id, request.listingProduct._id)} type="submit">Approve</Button>{' '}
@@ -113,7 +113,7 @@ function Listed({ requests}) {
               <Card border="danger" className="mt-2" key={request._id}>
                 <Card.Header>Requested by: {request.requestee.firstName}</Card.Header>
                 <Card.Header>Date requested: {request.dateRequested}</Card.Header>
-                <Card.Header>Date requested: {request.requestee.email}</Card.Header>            
+                <Card.Header><a href={`mailto:{request.requestee.email}`} target="_blank" rel="noreferrer" title={request.listingProduct.name}>Email: {request.requestee.email}</a></Card.Header>            
                 <Card.Header>Approval Status: {'Declined'}</Card.Header>               
                 <Card.Body>        
                 <Button variant="outline-success" value={ 'approved'}  onClick={event => handleApprove(event, request._id, request.listingProduct._id)} type="submit">Approve</Button>{' '}
