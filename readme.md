@@ -72,7 +72,7 @@ Additionally, I want to have the option to either give a donation or buy product
 
  To use the application, click on the link below:
 
-[Need to insert when we get it deployed]
+  https://borrow-my-stuff.herokuapp.com/
 
    
 
@@ -89,26 +89,30 @@ The following screen shots....
 
 ![image](https://user-images.githubusercontent.com/88617634/207000390-246441dd-8243-4e81-a603-e5721f358e6f.png)
 
-#### Log in
+#### Login
 
-![image](https://user-images.githubusercontent.com/88617634/207000621-d70c832a-f394-457b-99c4-080eb27bb4b8.png)
+![image](https://user-images.githubusercontent.com/88617634/207129222-e5f758cd-538f-4644-ad7c-6def99498d98.png)
 
 
 #### User dashboard
 
-![image](https://user-images.githubusercontent.com/88617634/207001045-f686be12-77de-4a6a-a540-76b3655971c9.png)
+![image](https://user-images.githubusercontent.com/88617634/207129451-0b3f14a4-ea65-4f72-a5a5-09abdfa875d7.png)
+<br></br>
+![image](https://user-images.githubusercontent.com/88617634/207129569-d8995ea7-0210-4fba-a60e-659c618287a9.png)
+
+
 
  #### List an item page
 
- ![image](https://user-images.githubusercontent.com/88617634/207001173-ae25a577-5bdd-4298-9f56-c0480a110b92.png)
+![image](https://user-images.githubusercontent.com/88617634/207129658-8e829dec-a718-4b30-ae65-209cb2c24fca.png)
  
  #### See all items by category
  
- ![image](https://user-images.githubusercontent.com/88617634/207001329-d9404a44-d03e-4fac-8e93-1b4b5159d545.png)
+![image](https://user-images.githubusercontent.com/88617634/207129776-a5bf491e-e3ba-43a1-a15c-84f2ee6e9609.png)
 
 #### Shop/donate page
 
-![image](https://user-images.githubusercontent.com/88617634/207001556-a25404ef-9226-4228-b4cf-2b61a9e4be01.png)
+![image](https://user-images.githubusercontent.com/88617634/207129922-a8b2efb2-e295-473a-b7cc-9d299343d0e5.png)
 
 
   ## Tests
@@ -136,7 +140,7 @@ The following screen shots....
   - Amal: https://github.com/AmalHirsi
   - Ashleigh: https://github.com/
   - Debra: https://github.com/Beanalini
-  - Joseph: https://github.com/JospehBalshaw
+  - Joseph: https://github.com/JosephBalshaw
   - Michael: https://github.com/munnos
  
   
