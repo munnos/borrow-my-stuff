@@ -1,6 +1,6 @@
 import React from "react";
 import Card from 'react-bootstrap/Card';
-import { Button, Container, Col } from 'react-bootstrap';
+import { Button, Container, Col, Row } from 'react-bootstrap';
 import { useQuery } from '@apollo/client';
 import { useParams } from 'react-router-dom';
 import { GET_ITEM_REQUESTS } from '../utils/queries';
@@ -23,7 +23,8 @@ const ItemRequests =  () => {
        
   return (
           <Container>
-          
+          <Row>
+          <Col md={{ span: 8, offset: 2 }}>
           { loading ? (
             <div>Loading data..</div>
           ) : (                
@@ -31,8 +32,9 @@ const ItemRequests =  () => {
             <ItemRequestList
               requests = { requestData }
               title ="Item requests"
-            /> )}           
-           
+            /> )} 
+            </Col>          
+           </Row> 
           </Container>
           
         );

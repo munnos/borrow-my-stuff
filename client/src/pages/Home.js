@@ -29,7 +29,9 @@ const Home = () => {
           <p>
           Borrow my Stuff is a not-for-profit organisation with a mission to link communities of like minded people who are willing to share their time, and lend items to others in need.  If you have items that you don’t use often - list them on our site and we’ll connect you with people who want to borrow them. Alternatively, you might want to borrow something yourself... signup and join our community.
           </p>
-          <Button className="button" variant="outline-primary" href="/donate" >Support our mission</Button>
+          <Link to="/donate">
+            <Button  className="button" variant="outline-primary"  >Support our mission</Button>
+          </Link>
         </Col>
       </Row> 
       <Row>
