@@ -72,7 +72,7 @@ Additionally, I want to have the option to either give a donation or buy product
 
  To use the application, click on the link below:
 
-[Need to insert when we get it deployed]
+  https://borrow-my-stuff.herokuapp.com/
 
    
 
