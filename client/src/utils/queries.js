@@ -204,6 +204,10 @@ query GetRequestsForProductIListed($listingProduct: ID!) {
       firstName
       lastName
     }
+    listingProduct {
+      _id
+      name
+    }
   }
 }`;
 

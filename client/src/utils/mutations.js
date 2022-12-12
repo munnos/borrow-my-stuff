@@ -80,3 +80,15 @@ export const LIST_AN_ITEM = gql`
     
     }
   }`;
+
+  export const CHANGE_REQUEST_STATUS = gql`
+  mutation EditRequestedProduct($listingRequest: ID!, $listingProduct: ID!, $decision: String!) {
+    editRequestedProduct(listingRequest: $listingRequest, listingProduct: $listingProduct, decision: $decision) {
+      _id
+      active
+      approved
+      dateRequested
+      duration
+    }
+  }  
+  `;
