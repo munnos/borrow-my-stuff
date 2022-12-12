@@ -35,12 +35,7 @@ function Listed({ requests}) {
       console.log(event.target.value);
       
       event.preventDefault();
-      //const decision = "approve";
-      console.log(event.target.value);
-      console.log(listingRequest);
-      console.log(listingProduct);      
-       
-
+      
       try {
         const { data } = await editRequestedProduct({
           variables: {
