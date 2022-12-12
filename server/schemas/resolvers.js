@@ -95,7 +95,7 @@ const resolvers = {
       return results;
     },
     getAllListedProducts: async (parent, args, context) => {
-      const results = await ListingProduct.find({}).populate('category').populate('user');
+      const results = await ListingProduct.find({}).sort({ listingDate: -1 }).populate('category').populate('user');
       return results;
     },
     getListedProductsByCategory: async (parent, args, context) => {

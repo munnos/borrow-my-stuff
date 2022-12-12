@@ -7,9 +7,11 @@ import Button from "react-bootstrap/Button";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
+
 function Listed({ profileView }) {
   const { loading, data } = useQuery(GET_MY_LISTED_PRODUCTS);
   const listedProducts = data?.getMyListedProducts || [];
+
   if (!listedProducts.length) {
     return <h3>No Listed Products Yet</h3>;
   }
@@ -21,6 +23,7 @@ function Listed({ profileView }) {
             listedProducts.map((listedProduct) => (
               <Col>
                 <Card
+                  className="listedItemsCard"
                   border="success"
                   style={{ width: "22rem" }}
                   key={listedProduct._id}

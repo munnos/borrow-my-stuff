@@ -37,8 +37,8 @@ function Requested({ profileView }) {
                     <Col>
                       <Card
                         border="warning"
-                        id="reqProdCard"
-                        style={{ width: "22rem" }}
+                        className="reqProdCardPending"
+                        style={{ width: "22rem", margin: "10px" }}
                         key={requestedProduct._id}
                       >
                         <Card.Header
@@ -64,7 +64,7 @@ function Requested({ profileView }) {
                           className="cardFooter  bg-dark text-white"
                         >
                           Requested on {requestedProduct.dateRequested}
-                          <br/> for {requestedProduct.duration}
+                          <br /> for {requestedProduct.duration}
                         </Card.Footer>
                       </Card>
                     </Col>
@@ -79,8 +79,8 @@ function Requested({ profileView }) {
                     <Col>
                       <Card
                         border="success"
-                        id="reqProdCard"
-                        style={{ width: "22rem" }}
+                        className="reqProdCardApproved"
+                        style={{ width: "22rem", margin: "10px" }}
                         key={requestedProduct._id}
                       >
                         <Card.Header
@@ -103,7 +103,7 @@ function Requested({ profileView }) {
                         </Card.Body>
                         <Card.Footer as="h6" className="text-center">
                           Requested on {requestedProduct.dateRequested}
-                          <br/> for {requestedProduct.duration}
+                          <br /> for {requestedProduct.duration}
                         </Card.Footer>
                       </Card>
                     </Col>
@@ -118,8 +118,8 @@ function Requested({ profileView }) {
                     <Col>
                       <Card
                         border="danger"
-                        id="reqProdCard"
-                        style={{ width: "22rem" }}
+                        className="reqProdCardDenied"
+                        style={{ width: "22rem", margin: "10px" }}
                         key={requestedProduct._id}
                       >
                         <Card.Header
@@ -142,7 +142,7 @@ function Requested({ profileView }) {
                         </Card.Body>
                         <Card.Footer as="h6" className="text-center">
                           Requested on {requestedProduct.dateRequested}
-                          <br/> for {requestedProduct.duration}
+                          <br /> for {requestedProduct.duration}
                         </Card.Footer>
                       </Card>
                     </Col>

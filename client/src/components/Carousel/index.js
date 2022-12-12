@@ -22,11 +22,9 @@ function Carousel() {
   const { loading, data } = useQuery(QUERY_ALL_LISTED_PRODUCTS);
   const listedProducts = data?.getAllListedProducts || [];
 
-  console.log(listedProducts);
-
   return (
     <div>
-      <h2 id="title">Recently listed stuff...</h2>
+      <h3 id="title">Recently listed stuff...</h3>
       <Flickity
         className={"carousel"}
         elementType={"div"}
