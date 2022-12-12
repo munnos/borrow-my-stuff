@@ -140,7 +140,7 @@ The following screen shots....
   - Amal: https://github.com/AmalHirsi
   - Ashleigh: https://github.com/
   - Debra: https://github.com/Beanalini
-  - Joseph: https://github.com/JospehBalshaw
+  - Joseph: https://github.com/JosephBalshaw
   - Michael: https://github.com/munnos
  
   
