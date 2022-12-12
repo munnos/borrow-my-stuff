@@ -126,7 +126,7 @@ const resolvers = {
     },
     getRequestsForProductIListed: async (parent, args, context) => {
       if (context.user) {
-        const results = await ListingRequest.find({listingProduct: args.listingProduct}).populate('requestee');
+        const results = await ListingRequest.find({listingProduct: args.listingProduct}).populate('requestee').populate('listingProduct');
         return results;
       }
 
