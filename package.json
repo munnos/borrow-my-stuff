@@ -2,6 +2,9 @@
   "name": "borrow-my-stuff",
   "version": "1.0.0",
   "description": "",
+  "engines": {
+    "node": "^16.0.0"
+  },
   "main": "server/server.js",
   "scripts": {
     "start": "node server/server.js",
