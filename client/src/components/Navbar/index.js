@@ -55,8 +55,7 @@ function Navtest() {
       <Container>
       <Link to="/donate">
         <img className="navbar-brand" src={bms_logo} alt="logo" class="logo"/>            
-        </Link>
-       
+        </Link>     
         
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
@@ -64,15 +63,12 @@ function Navtest() {
             <Link className="nav-link" to="/">Home</Link>
            
             {showNavigation()}
-            <NavDropdown title="Dropdown" id="basic-nav-dropdown">
-            <NavDropdown.Item href="/">
-                Home
-              </NavDropdown.Item>              
+            <NavDropdown title="Info" id="basic-nav-dropdown">           
               <NavDropdown.Divider />
-              <NavDropdown.Item href="/donate">
+              <NavDropdown.Item as={Link} to="/donate" key="2">
                 Support Us
               </NavDropdown.Item>
-              <NavDropdown.Item href="/aboutus">
+              <NavDropdown.Item as={Link} to="/aboutus">
                 About Us
               </NavDropdown.Item>
             </NavDropdown>
